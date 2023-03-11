@@ -5,6 +5,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,7 +22,9 @@ public class TagEntity extends BaseEntity{
 	@Column(name = "tagName")
 	private String tagName;
 	
-	@OneToMany(mappedBy = "tag")
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "tag_product", joinColumns = @JoinColumn(name = "tagid"), 
+								  inverseJoinColumns = @JoinColumn(name = "productid"))
 	private List<ProductEntity> products = new ArrayList<>();
 
 	public String getTagCode() {

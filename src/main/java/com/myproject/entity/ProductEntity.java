@@ -24,7 +24,7 @@ public class ProductEntity extends BaseEntity {
 	private BigDecimal price;
 
 	@Column(name = "shortdescription")
-	private String short_description;
+	private String shortDescription;
 	
 	@Column(name = "description", columnDefinition = "TEXT")
 	private String description;
@@ -51,9 +51,8 @@ public class ProductEntity extends BaseEntity {
 	@OneToMany(mappedBy = "product")
 	private List<ReviewEntity> review = new ArrayList<>();
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tag_id")
-    private TagEntity tag;
+	@ManyToMany(mappedBy = "products")
+    private List<TagEntity> tags = new ArrayList<>();
 
 	public String getName() {
 		return name;
@@ -71,12 +70,12 @@ public class ProductEntity extends BaseEntity {
 		this.price = price;
 	}
 
-	public String getShort_description() {
-		return short_description;
+	public String getShortDescription() {
+		return shortDescription;
 	}
 
-	public void setShort_description(String short_description) {
-		this.short_description = short_description;
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
 	}
 
 	public String getDescription() {
@@ -142,6 +141,15 @@ public class ProductEntity extends BaseEntity {
 	public void setReview(List<ReviewEntity> review) {
 		this.review = review;
 	}
+
+	public List<TagEntity> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<TagEntity> tags) {
+		this.tags = tags;
+	}
+
 	
 	
 }
