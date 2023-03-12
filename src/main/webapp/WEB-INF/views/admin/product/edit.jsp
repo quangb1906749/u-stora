@@ -1,11 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="newURL" value="/quan-tri/bai-viet/danh-sach"/>
-<c:url var="editNewURL" value="/quan-tri/bai-viet/chinh-sua"/>
-<c:url var="newAPI" value="/api/new"/>
+<c:url var="productURL" value="/quan-tri/san-pham/danh-sach"/>
+<c:url var="editProductURL" value="/quan-tri/san-pham/chinh-sua"/>
+<c:url var="productAPI" value="/api/product"/>
 <html>
 <head>
-<title>Chỉnh sửa bài viết</title>
+<title>Chỉnh sửa sản phẩm</title>
 </head>
 <body>
 <div class="main-content">
@@ -19,10 +19,10 @@
 			</script>
 
 			<ul class="breadcrumb">
-				<li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">Home</a>
+				<li><i class="ace-icon fa fa-home home-icon"></i> <a href="<c:url value='/quan-tri/trang-chu'/>">Home</a>
 				</li>
 
-				<li><a href="#">Forms</a></li>
+				<li><a href="<c:url value='/quan-tri/san-pham/danh-sach?page=1&limit=2'/>">Forms</a></li>
 				<li class="active">Form Elements</li>
 			</ul>
 			<!-- /.breadcrumb -->
@@ -46,27 +46,47 @@
 							  </div>
 						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tên bài viết</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tên sản phẩm</label>
 								<div class="col-sm-9">
-									<form:input path="title" cssClass="col-xs-10 col-sm-5"/>
+									<form:input path="name" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Ảnh đại diện</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Giá sản phẩm</label>
 								<div class="col-sm-9">
-									<input type="file" class="col-xs-10 col-sm-5" id="thumbnail" name="thumbnail"/>
+									<form:input path="price" cssClass="col-xs-10 col-sm-5"/>
 								</div>
+						</div>
+						<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Số lượng</label>
+								<div class="col-sm-9">
+									<form:input path="quantity" cssClass="col-xs-10 col-sm-5"/>
+								</div>
+						</div>
+						<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Hình ảnh</label>
+								<div class="col-sm-9">
+									<form:input path="image" cssClass="col-xs-10 col-sm-5"/>
+								</div>
+						</div>
+						<!-- 
+						<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Hình ảnh</label>
+								<div class="col-sm-9">
+									<input type="file" class="col-xs-10 col-sm-5" id="image" name="image"/>
+								</div>
+						</div>
+						-->
+						<div class="form-group">
+						  	<label for="shortDescription" class="col-sm-3 control-label no-padding-right">Mô tả:</label>
+						  	<div class="col-sm-9">
+						  		<form:textarea path="description" rows="5" cols="10" cssClass="form-control" id="description"/>
+						  	</div>
 						</div>
 						<div class="form-group">
 						  	<label for="shortDescription" class="col-sm-3 control-label no-padding-right">Mô tả ngắn:</label>
 						  	<div class="col-sm-9">
 						  		<form:textarea path="shortDescription" rows="5" cols="10" cssClass="form-control" id="shortDescription"/>
-						  	</div>
-						</div>
-						<div class="form-group">
-						  	<label for="content" class="col-sm-3 control-label no-padding-right">Nội dung:</label>
-						  	<div class="col-sm-9">
-						  		<form:textarea path="content" rows="5" cols="10" cssClass="form-control" id="content"/>
 						  	</div>
 						</div>
 						<form:hidden path="id" id="newId"/>
@@ -75,13 +95,13 @@
 											<c:if test="${not empty model.id}">
 												<button class="btn btn-info" type="button" id="btnAddOrUpdateNew">
 													<i class="ace-icon fa fa-check bigger-110"></i>
-													Cập nhật bài viết
+													Cập nhật sản phẩm
 												</button>
 											</c:if>
 											<c:if test="${empty model.id}">
 												<button class="btn btn-info" type="button" id="btnAddOrUpdateNew">
 													<i class="ace-icon fa fa-check bigger-110"></i>
-													Thêm bài viết
+													Thêm sản phẩm
 												</button>
 											</c:if>
 
@@ -117,32 +137,32 @@
 	
 	function addNew(data) {
 		$.ajax({
-            url: '${newAPI}',
+            url: '${productAPI}',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-            	window.location.href = "${editNewURL}?id="+result.id+"&message=insert_success";
+            	window.location.href = "${editProductURL}?id="+result.id+"&message=insert_success";
             },
             error: function (error) {
-            	window.location.href = "${newURL}?page=1&limit=2&message=error_system";
+            	window.location.href = "${productURL}?page=1&limit=2&message=error_system";
             }
         });
 	}
 	
 	function updateNew(data) {
 		$.ajax({
-            url: '${newAPI}',
+            url: '${productAPI}',
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-            	window.location.href = "${editNewURL}?id="+result.id+"&message=update_success";
+            	window.location.href = "${editProductURL}?id="+result.id+"&message=update_success";
             },
             error: function (error) {
-            	window.location.href = "${editNewURL}?id="+result.id+"&message=error_system";
+            	window.location.href = "${editProductURL}?id="+result.id+"&message=error_system";
             }
         });
 	}

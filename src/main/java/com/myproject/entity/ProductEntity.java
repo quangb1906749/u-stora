@@ -32,6 +32,9 @@ public class ProductEntity extends BaseEntity {
 	@Column(name = "image", columnDefinition = "TEXT")
 	private String image;
 	
+	@Column(name = "quantity")
+	private Long quantity;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
@@ -92,6 +95,14 @@ public class ProductEntity extends BaseEntity {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public Long getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
 	}
 
 	public CategoryEntity getCategory() {

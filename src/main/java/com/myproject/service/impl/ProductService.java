@@ -33,8 +33,8 @@ public class ProductService implements IProductService {
 		List<ProductDTO> models = new ArrayList<>();
 		List<ProductEntity> entities = productRepository.findAll(pageable).getContent();
 		for (ProductEntity item: entities) {
-			ProductDTO ProductDTO = productConverter.toDto(item);
-			models.add(ProductDTO);
+			ProductDTO productDTO = productConverter.toDto(item);
+			models.add(productDTO);
 		}
 		return models;
 	}

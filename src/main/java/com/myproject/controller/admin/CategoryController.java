@@ -14,15 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myproject.Util.MessageUtil;
+import com.myproject.dto.CategoryDTO;
 import com.myproject.dto.ProductDTO;
 import com.myproject.service.ICategoryService;
 import com.myproject.service.IProductService;
 
-@Controller(value = "productControllerOfAdmin")
-public class ProductController {
-	
-	@Autowired
-	private IProductService productService;
+@Controller(value = "categoryControllerOfAdmin")
+public class CategoryController {
 	
 	@Autowired
 	private ICategoryService categoryService;
@@ -30,16 +28,16 @@ public class ProductController {
 	@Autowired
 	private MessageUtil messageUtil;
 
-	@RequestMapping(value = "/quan-tri/san-pham/danh-sach", method = RequestMethod.GET)
+	@RequestMapping(value = "/quan-tri/danh-muc/danh-sach", method = RequestMethod.GET)
 	public ModelAndView showList(@RequestParam("page") int page, 
 								 @RequestParam("limit") int limit, HttpServletRequest request) {
-		ProductDTO model = new ProductDTO();
+		CategoryDTO model = new CategoryDTO();
 		model.setPage(page);
 		model.setLimit(limit);
-		ModelAndView mav = new ModelAndView("admin/product/list");
+		ModelAndView mav = new ModelAndView("admin/category/list");
 		Pageable pageable = new PageRequest(page - 1, limit);
-		model.setListResult(productService.findAll(pageable));
-		model.setTotalItem(productService.getTotalItem());
+		model.setListResult(categoryService.findAll(pageable));
+		model.setTotalItem(categoryService.getTotalItem());
 		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
 		if (request.getParameter("message") != null) {
 			Map<String, String> message = messageUtil.getMessage(request.getParameter("message"));
@@ -50,19 +48,18 @@ public class ProductController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/quan-tri/san-pham/chinh-sua", method = RequestMethod.GET)
+	@RequestMapping(value = "/quan-tri/danh-muc/chinh-sua", method = RequestMethod.GET)
 	public ModelAndView editProduct(@RequestParam(value = "id", required = false) Long id, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("admin/product/edit");
-		ProductDTO model = new ProductDTO();
+		ModelAndView mav = new ModelAndView("admin/category/edit");
+		CategoryDTO model = new CategoryDTO();
 		if (id != null) {
-			model = productService.findById(id);
+			model = categoryService.findById(id);
 		}
 		if (request.getParameter("message") != null) {
 			Map<String, String> message = messageUtil.getMessage(request.getParameter("message"));
 			mav.addObject("message", message.get("message"));
 			mav.addObject("alert", message.get("alert"));
 		}
-		mav.addObject("categories", categoryService.findAll());
 		mav.addObject("model", model);
 		return mav;
 	}

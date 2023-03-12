@@ -8,6 +8,8 @@ public class ProductDTO extends AbstractDTO<ProductDTO> {
 	private BigDecimal price;
 	private String shortDescription;
 	private String description;
+	private String image;
+	private Long quantity;
 	
 	private Long categoryId;
 	private String categoryCode;
@@ -35,8 +37,19 @@ public class ProductDTO extends AbstractDTO<ProductDTO> {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}	
+	public String getImage() {
+		return image;
 	}
-	
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public Long getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
+	}
 	public Long getCategoryId() {
 		return categoryId;
 	}

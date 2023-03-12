@@ -14,20 +14,20 @@ import com.myproject.service.IProductService;
 public class ProductAPI {
 	
 	@Autowired
-	private IProductService ProductService;
+	private IProductService productService;
 	
 	@PostMapping("/api/product")
-	public ProductDTO createProduct(@RequestBody ProductDTO ProductDTO) {
-		return ProductService.save(ProductDTO);
+	public ProductDTO createProduct(@RequestBody ProductDTO productDTO) {
+		return productService.save(productDTO);
 	}
 	
 	@PutMapping("/api/product")
 	public ProductDTO updateProduct(@RequestBody ProductDTO updateProduct) {
-		return ProductService.save(updateProduct);
+		return productService.save(updateProduct);
 	}
 	
 	@DeleteMapping("/api/product")
 	public void deleteProduct(@RequestBody long[] ids) {
-		ProductService.delete(ids);
+		productService.delete(ids);
 	}
 }

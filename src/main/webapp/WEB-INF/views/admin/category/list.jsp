@@ -1,19 +1,19 @@
 <%@include file="/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<c:url var="productAPI" value="/api/product"/>
-<c:url var="productURL" value="/quan-tri/san-pham/danh-sach"/>
+<c:url var="categoryAPI" value="/api/category"/>
+<c:url var="categoryURL" value="/quan-tri/danh-muc/danh-sach"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Danh sách sản phẩm</title>
+		<title>Danh sách danh mục</title>
 	</head>
 
 	<body>
 		<div class="main-content">
-		<form action="<c:url value='/quan-tri/san-pham/danh-sach'/>" id="formSubmit" method="get">
+		<form action="<c:url value='/quan-tri/danh-muc/danh-sach'/>" id="formSubmit" method="get">
 			
 				<div class="main-content-inner">
 					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -37,10 +37,10 @@
 									<div class="table-btn-controls">
 										<div class="pull-right tableTools-container">
 											<div class="dt-buttons btn-overlap btn-group">
-												<c:url var="createProductURL" value="/quan-tri/san-pham/chinh-sua"/>
+												<c:url var="createCategoryURL" value="/quan-tri/danh-muc/chinh-sua"/>
 												<a flag="info"
 												   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip"
-												   title='Thêm bài viết' href='${createProductURL}'>
+												   title='Thêm bài viết' href='${createCategoryURL}'>
 															<span>
 																<i class="fa fa-plus-circle bigger-110 purple"></i>
 															</span>
@@ -62,11 +62,8 @@
 												<thead>
 													<tr>
 														<th><input type="checkbox" id="checkAll"></th>
-														<th>Tên sản phẩm</th>
-														<th>Giá</th>
-														<th>Số lượng</th>
-														<th>Mô tả ngắn</th>
-														<th>Thao tác</th>
+														<th>Tên danh mục</th>
+														<th>Code</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -74,15 +71,13 @@
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
 															<td>${item.name}</td>
-															<td>${item.price}</td>
-															<td>${item.quantity}</td>
-															<td>${item.shortDescription}</td>
+															<td>${item.code}</td>
 															<td>
-																<c:url var="updateProductURL" value="/quan-tri/san-pham/chinh-sua">
+																<c:url var="updateCategoryURL" value="/quan-tri/danh-muc/chinh-sua">
 																	<c:param name="id" value="${item.id}"/>															
 																</c:url>																
 																<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-																   title="Cập nhật bài viết" href='${updateProductURL}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+																   title="Cập nhật bài viết" href='${updateCategoryURL}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 																</a>
 															</td>
 														</tr>
@@ -135,21 +130,21 @@
 							var ids = $('tbody input[type=checkbox]:checked').map(function () {
 					            return $(this).val();
 					        }).get();
-							deleteProduct(ids);
+							deleteCategory(ids);
 					  }
 					});
 			} 
-			function deleteProduct(data) {
+			function deleteCategory(data) {
 		        $.ajax({
-		            url: '${productAPI}',
+		            url: '${categoryAPI}',
 		            type: 'DELETE',
 		            contentType: 'application/json',
 		            data: JSON.stringify(data),
 		            success: function (result) {
-		                window.location.href = "${productURL}?page=1&limit=2&message=delete_success";
+		                window.location.href = "${categoryURL}?page=1&limit=2&message=delete_success";
 		            },
 		            error: function (error) {
-		            	window.location.href = "${productURL}?page=1&limit=2&message=error_system";
+		            	window.location.href = "${categoryURL}?page=1&limit=2&message=error_system";
 		            }
 		        });
 		    }
