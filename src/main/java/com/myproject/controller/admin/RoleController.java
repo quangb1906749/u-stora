@@ -14,28 +14,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myproject.Util.MessageUtil;
-import com.myproject.dto.CategoryDTO;
-import com.myproject.service.ICategoryService;
+import com.myproject.dto.RoleDTO;
+import com.myproject.service.IRoleService;
 
-@Controller(value = "categoryControllerOfAdmin")
-public class CategoryController {
+@Controller(value = "roleControllerOfAdmin")
+public class RoleController {
 	
 	@Autowired
-	private ICategoryService categoryService;
+	private IRoleService roleService;
 	
 	@Autowired
 	private MessageUtil messageUtil;
 
-	@RequestMapping(value = "/quan-tri/danh-muc/danh-sach", method = RequestMethod.GET)
+	@RequestMapping(value = "/quan-tri/vai-tro/danh-sach", method = RequestMethod.GET)
 	public ModelAndView showList(@RequestParam("page") int page, 
 								 @RequestParam("limit") int limit, HttpServletRequest request) {
-		CategoryDTO model = new CategoryDTO();
+		RoleDTO model = new RoleDTO();
 		model.setPage(page);
 		model.setLimit(limit);
-		ModelAndView mav = new ModelAndView("admin/category/list");
+		ModelAndView mav = new ModelAndView("admin/role/list");
 		Pageable pageable = new PageRequest(page - 1, limit);
-		model.setListResult(categoryService.findAll(pageable));
-		model.setTotalItem(categoryService.getTotalItem());
+		model.setListResult(roleService.findAll(pageable));
+		model.setTotalItem(roleService.getTotalItem());
 		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
 		if (request.getParameter("message") != null) {
 			Map<String, String> message = messageUtil.getMessage(request.getParameter("message"));
@@ -46,12 +46,12 @@ public class CategoryController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/quan-tri/danh-muc/chinh-sua", method = RequestMethod.GET)
+	@RequestMapping(value = "/quan-tri/vai-tro/chinh-sua", method = RequestMethod.GET)
 	public ModelAndView editProduct(@RequestParam(value = "id", required = false) Long id, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("admin/category/edit");
-		CategoryDTO model = new CategoryDTO();
+		ModelAndView mav = new ModelAndView("admin/role/edit");
+		RoleDTO model = new RoleDTO();
 		if (id != null) {
-			model = categoryService.findById(id);
+			model = roleService.findById(id);
 		}
 		if (request.getParameter("message") != null) {
 			Map<String, String> message = messageUtil.getMessage(request.getParameter("message"));

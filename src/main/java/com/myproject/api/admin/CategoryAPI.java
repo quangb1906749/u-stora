@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myproject.dto.CategoryDTO;
-import com.myproject.dto.ProductDTO;
 import com.myproject.service.ICategoryService;
-import com.myproject.service.IProductService;
 
 @RestController(value = "CategoryAPIOfAdmin")
 public class CategoryAPI {
