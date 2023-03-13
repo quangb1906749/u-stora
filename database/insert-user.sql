@@ -1,5 +1,13 @@
 use ustora;
 
+insert into category(categorycode, categoryName) values('lap-top','lap top');
+insert into category(categorycode, categoryName) values('smartphone','smartphone');
+
+insert into product(name, price, quantity, description, shortdescription, category_id) values('smartphoneX',10000000, 1, 'Common Descript', 'Test Decript',2);
+insert into product(name, price, quantity,description, shortdescription, category_id) values('smartphoneA',10000000, 2, 'Common Descript', 'Test Decript',1);
+insert into product(name, price, quantity,description, shortdescription, category_id) values('smartphoneB',10000000, 3, 'Common Descript', 'Test Decript',1);
+insert into product(name, price, quantity,description, shortdescription, category_id) values('smartphoneC',10000000, 4, 'Common Descript', 'Test Decript',2);
+
 insert into role(code,name) values('ADMIN','Quản trị');
 insert into role(code,name) values('USER','Người dùng');
 
