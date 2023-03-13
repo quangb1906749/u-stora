@@ -18,10 +18,10 @@ public class PaymentTypeEntity extends BaseEntity{
 	private String paymentCode;
 	
 	@Column
-	private String paymentNameString;
+	private String paymentName;
 	
 	@Column
-	private String image;
+	private String paymentImage;
 
 	public List<OrderEntity> getOrder() {
 		return order;
@@ -39,21 +39,22 @@ public class PaymentTypeEntity extends BaseEntity{
 		this.paymentCode = paymentCode;
 	}
 
-	public String getPaymentNameString() {
-		return paymentNameString;
+	public String getPaymentName() {
+		return paymentName;
 	}
 
-	public void setPaymentNameString(String paymentNameString) {
-		this.paymentNameString = paymentNameString;
+	public void setPaymentName(String paymentName) {
+		this.paymentName = paymentName;
 	}
 
-	public String getImage() {
-		return image;
+	public String getPaymentImage() {
+		return paymentImage;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setPaymentImage(String paymentImage) {
+		this.paymentImage = paymentImage;
 	}
+	
 	
 	
 }

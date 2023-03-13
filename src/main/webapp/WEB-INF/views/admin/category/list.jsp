@@ -64,6 +64,7 @@
 														<th><input type="checkbox" id="checkAll"></th>
 														<th>Tên danh mục</th>
 														<th>Code</th>
+														<th>Thao tác</th>
 													</tr>
 												</thead>
 												<tbody>

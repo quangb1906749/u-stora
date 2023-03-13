@@ -1,19 +1,19 @@
 <%@include file="/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<c:url var="roleAPI" value="/api/role"/>
-<c:url var="roleURL" value="/quan-tri/vai-tro/danh-sach"/>
+<c:url var="paymentTypeAPI" value="/api/paymentType"/>
+<c:url var="paymentTypeURL" value="/quan-tri/phuong-thuc-thanh-toan/danh-sach"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Danh sách vai trò</title>
+		<title>Danh sách phương thức thanh toán</title>
 	</head>
 
 	<body>
 		<div class="main-content">
-		<form action="<c:url value='/quan-tri/vai-tro/danh-sach'/>" id="formSubmit" method="get">
+		<form action="<c:url value='/quan-tri/phuong-thuc-thanh-toan/danh-sach'/>" id="formSubmit" method="get">
 			
 				<div class="main-content-inner">
 					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -37,7 +37,7 @@
 									<div class="table-btn-controls">
 										<div class="pull-right tableTools-container">
 											<div class="dt-buttons btn-overlap btn-group">
-												<c:url var="createCategoryURL" value="/quan-tri/vai-tro/chinh-sua"/>
+												<c:url var="createCategoryURL" value="/quan-tri/phuong-thuc-thanh-toan/chinh-sua"/>
 												<a flag="info"
 												   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip"
 												   title='Thêm bài viết' href='${createCategoryURL}'>
@@ -71,14 +71,14 @@
 													<c:forEach var="item" items="${model.listResult}">
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
-															<td>${item.name}</td>
-															<td>${item.code}</td>
+															<td>${item.paymentName}</td>
+															<td>${item.paymentCode}</td>
 															<td>
-																<c:url var="updateCategoryURL" value="/quan-tri/vai-tro/chinh-sua">
+																<c:url var="updateCategoryURL" value="/quan-tri/phuong-thuc-thanh-toan/chinh-sua">
 																	<c:param name="id" value="${item.id}"/>															
 																</c:url>																
 																<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-																   title="Cập nhật bài viết" href='${updateCategoryURL}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+																   title="Cập nhật" href='${updateCategoryURL}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 																</a>
 															</td>
 														</tr>
@@ -137,15 +137,15 @@
 			} 
 			function deleteCategory(data) {
 		        $.ajax({
-		            url: '${roleAPI}',
+		            url: '${paymentTypeAPI}',
 		            type: 'DELETE',
 		            contentType: 'application/json',
 		            data: JSON.stringify(data),
 		            success: function (result) {
-		                window.location.href = "${roleURL}?page=1&limit=2&message=delete_success";
+		                window.location.href = "${paymentTypeURL}?page=1&limit=2&message=delete_success";
 		            },
 		            error: function (error) {
-		            	window.location.href = "${roleURL}?page=1&limit=2&message=error_system";
+		            	window.location.href = "${paymentTypeURL}?page=1&limit=2&message=error_system";
 		            }
 		        });
 		    }
