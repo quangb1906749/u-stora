@@ -83,5 +83,10 @@ public class UserService implements IUserService {
 			userRepository.delete(id);
 		}
 	}
+
+	public List<CategoryEntity> GetDataCategorys() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
