@@ -30,13 +30,17 @@ public class HomeController {
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("web/home");
+		
 		ProductDTO model = new ProductDTO();
 		model.setListResult(productService.findAll());
 		mav.addObject("model", model);
 		
+		
+		
 		SlidesDTO slide = new SlidesDTO(); 
 		slide.setListResult(slideService.findAll());
 		mav.addObject("slides", slide);
+		
 		return mav;
 	}
 	
