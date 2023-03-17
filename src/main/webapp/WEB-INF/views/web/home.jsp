@@ -17,16 +17,18 @@
 		<!-- Slider -->
 		<div class="block-slider block-slider4">
 			<ul class="" id="bxslider-home4">
-				
+
 				<c:forEach var="item" items="${slides.listResult}">
-					<li><img src="<c:url value='/template/web/img/slides/${ item.img }'/>"
-					alt="Slide">
-					<div class="caption-group">
-						<h2 class="caption title">${ item.caption }</h2>
-						<h4 class="caption subtitle">${ item.content }</h4>
-						<a class="caption button-radius" href="#"><span class="icon"></span>Shop
-							now</a>
-					</div></li></c:forEach>
+					<li><img
+						src="<c:url value='/template/web/img/slides/${ item.img }'/>"
+						alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">${ item.caption }</h2>
+							<h4 class="caption subtitle">${ item.content }</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Shop
+								now</a>
+						</div></li>
+				</c:forEach>
 			</ul>
 		</div>
 		<!-- ./Slider -->
@@ -42,28 +44,28 @@
 						<h2 class="section-title">Products</h2>
 						<div class="product-carousel">
 
-							<div class="single-product">
-								<c:forEach var="pd" items="${model.listResult}" varStatus="home">
+							<c:forEach var="product" items="${model.listResult}"
+								varStatus="home">
+								<div class="single-product">
 									<div class="product-f-image">
 										<img
-											src="<c:url value='/template/web/img/product/${ pd.image }'/>"
+											src="<c:url value='/template/web/img/product/${ product.image }'/>"
 											alt="">
 										<div class="product-hover">
-
 											<a href="single-product.html" class="view-details-link"><i
 												class="fa fa-link"></i> See details</a>
 										</div>
 									</div>
 
-									<h2>${ pd.name }</h2>
+									<h2>${ product.name }</h2>
 
 									<div class="product-carousel-price">
-										<ins>${ pd.price }</ins>
+										<ins>${ product.price }</ins>
 									</div>
 									<a href="#" class="add-to-cart-link"><i
 										class="fa fa-shopping-cart"></i> Add to cart</a>
-								</c:forEach>
-							</div>
+								</div>
+							</c:forEach>
 
 						</div>
 					</div>
@@ -74,7 +76,7 @@
 	</div>
 	<!-- End main content area -->
 
-<!--	<div class="product-widget-area">
+	<!--	<div class="product-widget-area">
 		<div class="zigzag-bottom"></div>
 		<div class="container">
 			<div class="row">
