@@ -3,6 +3,7 @@ package com.myproject.controller.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -11,12 +12,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myproject.dto.ProductDTO;
+import com.myproject.dto.SlidesDTO;
+import com.myproject.service.IProductService;
+import com.myproject.service.ISlidesService;
+
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {
 
+	@Autowired
+	private IProductService productService;
+	
+	@Autowired
+	private ISlidesService slideService;
+
+	
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("web/home");
+		
+		ProductDTO model = new ProductDTO();
+		model.setListResult(productService.findAll());
+		mav.addObject("model", model);
+		
+		
+		
+		SlidesDTO slide = new SlidesDTO(); 
+		slide.setListResult(slideService.findAll());
+		mav.addObject("slides", slide);
+		
 		return mav;
 	}
 	
@@ -39,4 +63,5 @@ public class HomeController {
 	public ModelAndView accessDenied() {
 		return new ModelAndView("redirect:/dang-nhap?accessDenied");
 	}
+	
 }

@@ -1,7 +1,9 @@
 package com.myproject.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -32,6 +34,17 @@ public class ProductService implements IProductService {
 	public List<ProductDTO> findAll(Pageable pageable) {
 		List<ProductDTO> models = new ArrayList<>();
 		List<ProductEntity> entities = productRepository.findAll(pageable).getContent();
+		for (ProductEntity item: entities) {
+			ProductDTO productDTO = productConverter.toDto(item);
+			models.add(productDTO);
+		}
+		return models;
+	}
+	
+	@Override
+	public List<ProductDTO> findAll() {
+		List<ProductDTO> models = new ArrayList<>();
+		List<ProductEntity> entities = productRepository.findAll();
 		for (ProductEntity item: entities) {
 			ProductDTO productDTO = productConverter.toDto(item);
 			models.add(productDTO);
@@ -73,4 +86,6 @@ public class ProductService implements IProductService {
 			productRepository.delete(id);
 		}
 	}
+
+	
 }
