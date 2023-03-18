@@ -35,8 +35,6 @@ public class HomeController {
 		model.setListResult(productService.findAll());
 		mav.addObject("model", model);
 		
-		
-		
 		SlidesDTO slide = new SlidesDTO(); 
 		slide.setListResult(slideService.findAll());
 		mav.addObject("slides", slide);
