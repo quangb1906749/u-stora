@@ -64,6 +64,8 @@
 											data-product_sku="" data-product_id="70" rel="nofollow"
 											href="/canvas/shop/?add-to-cart=70">Add to cart</a>
 									</div>
+									<a href="<c:url value="/AddCart/${product.id }"/>" class="add-to-cart-link"><i
+										class="fa fa-shopping-cart"></i> Add to cart</a>
 								</div>
 							</div>
 						</c:forEach>
