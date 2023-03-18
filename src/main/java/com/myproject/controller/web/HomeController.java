@@ -44,6 +44,12 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/single-product", method = RequestMethod.GET)
+	public ModelAndView singleproductPage() {
+		ModelAndView mav = new ModelAndView("web/single-product");
+		return mav;
+	}
+	
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		ModelAndView mav = new ModelAndView("login");
