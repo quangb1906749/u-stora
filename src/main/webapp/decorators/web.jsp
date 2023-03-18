@@ -61,5 +61,6 @@
     <!-- Slider -->
     <script type="text/javascript" src="<c:url value="/template/web/js/bxslider.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/template/web/js/script.slider.js"/>"></script>
+	<dec:getProperty property="page.script"></dec:getProperty>
   </body>
 </html>

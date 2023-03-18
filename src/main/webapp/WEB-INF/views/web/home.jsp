@@ -62,7 +62,7 @@
 									<div class="product-carousel-price">
 										<ins>${ product.price }</ins>
 									</div>
-									<a href="#" class="add-to-cart-link"><i
+									<a href="<c:url value="/AddCart/${product.id }"/>" class="add-to-cart-link"><i
 										class="fa fa-shopping-cart"></i> Add to cart</a>
 								</div>
 							</c:forEach>
