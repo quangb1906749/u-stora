@@ -380,6 +380,7 @@ z-index: 999;}
 .product-hover {
     height: 100%;
     left: 0;
+    right: 200;
     position: absolute;
     top: 0;
     width: 100%;overflow: hidden;border: 1px solid #ddd;

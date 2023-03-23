@@ -66,7 +66,7 @@
 						<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Hình ảnh</label>
 								<div class="col-sm-9">
-									<form:input path="image" cssClass="col-xs-10 col-sm-5"/>
+									<form:input type="file" path="image" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<!-- 
