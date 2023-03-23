@@ -11,7 +11,7 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="<c:url value='/gio-hang'/>">Giỏ hàng - <span class="cart-amunt">${TotalPriceCart }₫</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">${TotalQuantyCart }</span></a>
                     </div>
                 </div>
             </div>

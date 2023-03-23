@@ -35,7 +35,7 @@ public class CartController {
 		}
 		cart = cartService.AddCart(id, cart);
 		session.setAttribute("Cart", cart);
-//		session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
+		session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
 		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
 		return "redirect:"+request.getHeader("Referer");
 	}
@@ -61,7 +61,7 @@ public class CartController {
 		}
 		cart = cartService.DeleteCart(id, cart);
 		session.setAttribute("Cart", cart);
-//		session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
+		session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
 		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
 		return "redirect:"+request.getHeader("Referer");
 	}

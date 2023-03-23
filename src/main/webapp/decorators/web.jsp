@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="<c:url value="/template/web/css/owl.carousel.css"/>">
     <link rel="stylesheet" href="<c:url value="/template/web/style.css"/>">
     <link rel="stylesheet" href="<c:url value="/template/web/css/responsive.css"/>">
+    <dec:head></dec:head>
 
   </head>
   <body>

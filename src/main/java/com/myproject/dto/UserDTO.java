@@ -16,6 +16,10 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	
 	private Long roleId;
 	private String roleCode;
+	
+	public UserDTO() {
+		super();
+	}
 	public String getUserName() {
 		return userName;
 	}
