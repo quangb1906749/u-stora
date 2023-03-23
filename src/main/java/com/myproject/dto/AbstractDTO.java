@@ -23,6 +23,10 @@ public class AbstractDTO<T> {
 	private String message;
 	private String type;
 	
+	public AbstractDTO() {
+		super();
+	}
+	
 	public Long getId() {
 		return id;
 	}

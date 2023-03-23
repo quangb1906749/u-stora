@@ -82,6 +82,8 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	public void setRoleCode(String roleCode) {
 		this.roleCode = roleCode;
 	}
-
+	public UserDTO() {
+		super();
+	}
 	
 }

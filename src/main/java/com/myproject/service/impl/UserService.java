@@ -84,6 +84,7 @@ public class UserService implements IUserService {
 		}
 	}
 
+	@Override
 	public List<CategoryEntity> GetDataCategorys() {
 		// TODO Auto-generated method stub
 		return null;

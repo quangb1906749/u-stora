@@ -11,6 +11,7 @@
                             <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
                             <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
                             <li><a href="<c:url value="/dang-nhap"/>"><i class="fa fa-user"></i> Login</a></li>
+                            <li><a href="<c:url value="/dang-ky"/>"><i class="fa fa-user"></i> Register</a></li>
                         </ul>
                     </div>
                 </div>
