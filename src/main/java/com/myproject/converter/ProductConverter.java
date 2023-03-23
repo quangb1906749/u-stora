@@ -18,6 +18,7 @@ public class ProductConverter {
 		result.setDescription(entity.getDescription());
 		result.setShortDescription(entity.getShortDescription());
 		result.setCategoryCode(entity.getCategory().getCategoryCode());
+		result.setCategoryName(entity.getCategory().getCategoryName());
 		return result;
 	}
 	

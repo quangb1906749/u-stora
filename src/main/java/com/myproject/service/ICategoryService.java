@@ -14,4 +14,5 @@ public interface ICategoryService {
 	CategoryDTO findById(long id);
 	CategoryDTO save(CategoryDTO dto);
 	void delete(long[] ids);
+	CategoryDTO fineByCategoryCode(String categoryCode);
 }
