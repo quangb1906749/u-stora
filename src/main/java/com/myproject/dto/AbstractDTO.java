@@ -26,7 +26,6 @@ public class AbstractDTO<T> {
 	public AbstractDTO() {
 		super();
 	}
-	
 	public Long getId() {
 		return id;
 	}
