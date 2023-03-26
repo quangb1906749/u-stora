@@ -17,10 +17,10 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableJpaRepositories(basePackages = {"com.myproject.repository"})
+@EnableJpaRepositories(basePackages = { "com.myproject.repository" })
 @EnableTransactionManagement
 public class JPAConfig {
-	
+
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -31,19 +31,19 @@ public class JPAConfig {
 		em.setJpaProperties(additionalProperties());
 		return em;
 	}
-	
+
 	@Bean
 	JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactory);
 		return transactionManager;
 	}
-	
+
 	@Bean
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
-	
+
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -53,17 +53,13 @@ public class JPAConfig {
 		dataSource.setPassword("H7717h27?");
 		return dataSource;
 	}
-	
+
 	Properties additionalProperties() {
 		Properties properties = new Properties();
 //		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-<<<<<<< HEAD
-	//	properties.setProperty("hibernate.hbm2ddl.auto", "create"); //xoa het data chạy lại, có thay đổi table
-=======
 //		properties.setProperty("hibernate.hbm2ddl.auto", "create"); //xoa het data chạy lại, có thay đổi table
-//		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
->>>>>>> 99bf6343ecae44eb9c8feb06dae29e542440900d
-		properties.setProperty("hibernate.hbm2ddl.auto", "none");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+//		properties.setProperty("hibernate.hbm2ddl.auto", "none");
 		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		return properties;
 	}
