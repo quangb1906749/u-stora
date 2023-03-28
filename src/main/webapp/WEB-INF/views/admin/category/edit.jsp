@@ -54,13 +54,13 @@
 											<c:if test="${not empty model.id}">
 												<button class="btn btn-info" type="button" id="btnAddOrUpdateCategory">
 													<i class="ace-icon fa fa-check bigger-110"></i>
-													Cập nhật danh mục
+													Lưu
 												</button>
 											</c:if>
 											<c:if test="${empty model.id}">
 												<button class="btn btn-info" type="button" id="btnAddOrUpdateCategory">
 													<i class="ace-icon fa fa-check bigger-110"></i>
-													Thêm danh mục
+													Lưu
 												</button>
 											</c:if>
 

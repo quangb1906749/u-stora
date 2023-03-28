@@ -2,25 +2,30 @@ package com.myproject.dto;
 
 import java.math.BigDecimal;
 
-public class OrderDTO extends AbstractDTO<CategoryDTO>{
+public class OrderDTO extends AbstractDTO<OrderDTO>{
 	private String fullName;
 	private String email;
 	private Long userId;
 	private String shipPhone;
 	private String shipAddress;
+	private String shipState;
 	private int orderTotalQuantity;
 	private BigDecimal orderTotalPrice;
+	
 	
 		
 	public OrderDTO() {
 		super();
 	}
-	public OrderDTO(Long userId, String shipPhone, String shipAddress, int orderTotalQuantity,
-			BigDecimal orderTotalPrice) {
+	public OrderDTO(String fullName, String email, Long userId, String shipPhone, String shipAddress, String shipState,
+			int orderTotalQuantity, BigDecimal orderTotalPrice) {
 		super();
+		this.fullName = fullName;
+		this.email = email;
 		this.userId = userId;
 		this.shipPhone = shipPhone;
 		this.shipAddress = shipAddress;
+		this.shipState = shipState;
 		this.orderTotalQuantity = orderTotalQuantity;
 		this.orderTotalPrice = orderTotalPrice;
 	}
@@ -41,6 +46,12 @@ public class OrderDTO extends AbstractDTO<CategoryDTO>{
 	}
 	public void setShipAddress(String shipAddress) {
 		this.shipAddress = shipAddress;
+	}
+	public String getShipState() {
+		return shipState;
+	}
+	public void setShipState(String shipState) {
+		this.shipState = shipState;
 	}
 	public int getOrderTotalQuantity() {
 		return orderTotalQuantity;

@@ -6,6 +6,33 @@
 <html>
 <head>
 <title>Chỉnh sửa thông tin người dùng</title>
+<style>
+.birthday{
+	-webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+    font: inherit;
+    margin: 0;
+    position: relative;
+    min-height: 1px;
+    float: left;
+    display: block;
+    height: 34px;
+    line-height: 1.42857143;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: 0!important;
+    color: #858585;
+    border: 1px solid #d5d5d5;
+    padding: 5px 4px 6px;
+    font-size: 14px;
+    font-family: inherit;
+    box-shadow: none!important;
+    transition-duration: .1s;
+    border-color: #b5b5b5;
+    background: #FFF;
+    width: 480px;
+}
+</style>
 </head>
 <body>
 	<div class="main-content">
@@ -69,7 +96,7 @@
 									for="form-field-1">Ngày sinh</label>
 								<div class="col-sm-9">
 									<form:input path="birthday"
-										class="form-control date-picker col-xs-10 col-sm-5"
+										class="form-control date-picker col-xs-10 col-sm-5 birthday"
 										id="id-date-picker-1" type="text"
 										data-date-format="dd-mm-yyyy" style="width:480px" />
 									<span class="input-group-addon"
