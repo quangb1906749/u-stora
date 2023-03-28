@@ -9,9 +9,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.myproject.converter.OrderConverter;
+import com.myproject.converter.OrderDetailConverter;
 import com.myproject.dto.OrderDTO;
+import com.myproject.dto.OrderDetailDTO;
+import com.myproject.entity.OrderDetailEntity;
 import com.myproject.entity.OrderEntity;
 import com.myproject.entity.UserEntity;
+import com.myproject.repository.OrderDetailRepository;
 import com.myproject.repository.OrderRepository;
 import com.myproject.repository.UserRepository;
 import com.myproject.service.IOrderService;
@@ -23,10 +27,16 @@ public class OrderService implements IOrderService {
 	private OrderRepository orderRepository;
 	
 	@Autowired
+	private OrderDetailRepository orderDetailRepository;
+	
+	@Autowired
 	private UserRepository userRepository;
 	
 	@Autowired
 	private OrderConverter orderConverter;
+	
+	@Autowired
+	private OrderDetailConverter orderDetailConverter;
 	
 	@Override
 	public List<OrderDTO> findAll(Pageable pageable) {
@@ -58,7 +68,15 @@ public class OrderService implements IOrderService {
 	@Override
 	public OrderDTO findById(long id) {
 		OrderEntity entity = orderRepository.findOne(id);
-		return orderConverter.toDto(entity);
+		OrderDTO model = orderConverter.toDto(entity);
+		List<OrderDetailDTO> models = new ArrayList<>();
+		List<OrderDetailEntity> entities = orderDetailRepository.findByOrder(entity);
+		for (OrderDetailEntity item: entities) {
+			OrderDetailDTO orderDetailDTO = orderDetailConverter.toDto(item);
+			models.add(orderDetailDTO);
+		}
+		model.setListOrderDetail(models);
+		return model;
 	}
 	
 	@Override

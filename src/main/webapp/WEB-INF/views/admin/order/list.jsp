@@ -20,7 +20,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Trang chủ</a>
+								<a href="<c:url value='/quan-tri/trang-chu'/>">Trang chủ</a>
 							</li>
 						</ul>
 						<!-- /.breadcrumb -->
@@ -54,6 +54,9 @@
 												<thead>
 													<tr>
 														<th><input type="checkbox" id="checkAll"></th>
+														<th>
+															Chi tiết
+														</th>
 														<th>Mã đơn hàng</th>
 														<th>Ngày đặt hàng</th>
 														<th>Khách hàng</th>
@@ -68,6 +71,13 @@
 													<c:forEach var="item" items="${model.listResult}">
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
+															<td>
+															<c:url var="orderDetailURL" value="/quan-tri/chi-tiet-don-hang">
+																	<c:param name="id" value="${item.id}"/>															
+																</c:url>
+															<a href="${orderDetailURL}"><i class="ace-icon glyphicon glyphicon-search"></i>
+															</a>
+															</td>
 															<td>${item.id}</td>
 															<td>${item.createdDate }</td>
 															<td>${item.fullName}</td>

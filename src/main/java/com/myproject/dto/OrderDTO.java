@@ -1,6 +1,8 @@
 package com.myproject.dto;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderDTO extends AbstractDTO<OrderDTO>{
 	private String fullName;
@@ -11,6 +13,7 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 	private String shipState;
 	private int orderTotalQuantity;
 	private BigDecimal orderTotalPrice;
+	private List<OrderDetailDTO> listOrderDetail = new ArrayList<>();
 	
 	
 		
@@ -76,6 +79,12 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public List<OrderDetailDTO> getListOrderDetail() {
+		return listOrderDetail;
+	}
+	public void setListOrderDetail(List<OrderDetailDTO> listOrderDetail) {
+		this.listOrderDetail = listOrderDetail;
 	}
 	
 	
