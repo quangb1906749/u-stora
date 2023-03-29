@@ -44,7 +44,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/single-product", method = RequestMethod.GET)
 	public ModelAndView singleproductPage() {
-		ModelAndView mav = new ModelAndView("web/single-product");
+		ModelAndView mav = new ModelAndView("web/product/single-product");
 		return mav;
 	}
 	

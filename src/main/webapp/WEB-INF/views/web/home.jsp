@@ -53,7 +53,7 @@
 											alt="">
 									</div>
 									<h2>
-										<a href="single-product.html">${ product.name }</a>
+										<a href="<c:url value='/chi-tiet-san-pham/${ product.id }'/>">${ product.name }</a>
 									</h2>
 									<div class="product-carousel-price">
 										<ins>$ ${ product.price }</ins>
