@@ -44,7 +44,7 @@
             <b class="arrow"></b>
             <ul class="submenu">
                 <li>
-                    <a href="<c:url value='/quan-tri/san-pham/danh-sach?page=1&limit=2'/>">
+                    <a href="<c:url value='/quan-tri/san-pham/danh-sach?page=1&limit=6'/>">
                         <i class="menu-icon fa fa-caret-right"></i>
                         DS sản phẩm
                     </a>
@@ -68,6 +68,13 @@
                     <a href="<c:url value='/quan-tri/nguoi-dung/danh-sach?page=1&limit=2'/>">
                         <i class="menu-icon fa fa-caret-right"></i>
                         DS người dùng
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li>
+                    <a href="<c:url value='/quan-tri/don-hang/danh-sach?page=1&limit=2'/>">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        DS đơn hàng
                     </a>
                     <b class="arrow"></b>
                 </li>

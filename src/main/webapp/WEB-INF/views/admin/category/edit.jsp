@@ -5,7 +5,12 @@
 <c:url var="categoryAPI" value="/api/category"/>
 <html>
 <head>
-<title>Chỉnh sửa danh mục</title>
+	<c:if test="${not empty model.id}">
+						<title>Cập nhật danh mục</title>
+	</c:if>
+	<c:if test="${empty model.id}">
+						<title>Thêm danh mục</title>
+	</c:if>
 </head>
 <body>
 <div class="main-content">
@@ -19,11 +24,18 @@
 			</script>
 
 			<ul class="breadcrumb">
-				<li><i class="ace-icon fa fa-home home-icon"></i> <a href="<c:url value='/quan-tri/trang-chu'/>">Home</a>
+				<li><i class="ace-icon fa fa-home home-icon"></i> <a href="<c:url value='/quan-tri/trang-chu'/>">Trang chủ</a>
 				</li>
 
-				<li><a href="<c:url value='/quan-tri/danh-muc/danh-sach?page=1&limit=2'/>">Forms</a></li>
-				<li class="active">Form Elements</li>
+				<li><a href="<c:url value='/quan-tri/danh-muc/danh-sach?page=1&limit=2'/>">Danh sách</a></li>
+				<li class="active">
+					<c:if test="${not empty model.id}">
+						Cập nhật danh mục
+					</c:if>
+					<c:if test="${empty model.id}">
+						Thêm danh mục
+					</c:if>
+				</li>
 			</ul>
 			<!-- /.breadcrumb -->
 		</div>
@@ -54,13 +66,13 @@
 											<c:if test="${not empty model.id}">
 												<button class="btn btn-info" type="button" id="btnAddOrUpdateCategory">
 													<i class="ace-icon fa fa-check bigger-110"></i>
-													Cập nhật danh mục
+													Lưu
 												</button>
 											</c:if>
 											<c:if test="${empty model.id}">
 												<button class="btn btn-info" type="button" id="btnAddOrUpdateCategory">
 													<i class="ace-icon fa fa-check bigger-110"></i>
-													Thêm danh mục
+													Lưu
 												</button>
 											</c:if>
 

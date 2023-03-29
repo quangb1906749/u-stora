@@ -5,7 +5,12 @@
 <c:url var="productAPI" value="/api/product"/>
 <html>
 <head>
-<title>Chỉnh sửa sản phẩm</title>
+	<c:if test="${not empty model.id}">
+						<title>Cập nhật sản phẩm</title>
+	</c:if>
+	<c:if test="${empty model.id}">
+						<title>Thêm sản phẩm</title>
+	</c:if>
 </head>
 <body>
 <div class="main-content">
@@ -19,11 +24,19 @@
 			</script>
 
 			<ul class="breadcrumb">
-				<li><i class="ace-icon fa fa-home home-icon"></i> <a href="<c:url value='/quan-tri/trang-chu'/>">Home</a>
+				<li><i class="ace-icon fa fa-home home-icon"></i> <a href="<c:url value='/quan-tri/trang-chu'/>">Trang chủ</a>
 				</li>
 
-				<li><a href="<c:url value='/quan-tri/san-pham/danh-sach?page=1&limit=2'/>">Forms</a></li>
-				<li class="active">Form Elements</li>
+				<li><a href="<c:url value='/quan-tri/san-pham/danh-sach?page=1&limit=2'/>">Danh sách</a></li>
+				<li class="active">
+					<c:if test="${not empty model.id}">
+						Cập nhật sản phẩm
+					</c:if>
+					<c:if test="${empty model.id}">
+						Thêm sản phẩm
+					</c:if>
+
+				</li>
 			</ul>
 			<!-- /.breadcrumb -->
 		</div>
@@ -95,13 +108,13 @@
 											<c:if test="${not empty model.id}">
 												<button class="btn btn-info" type="button" id="btnAddOrUpdateNew">
 													<i class="ace-icon fa fa-check bigger-110"></i>
-													Cập nhật sản phẩm
+													Lưu
 												</button>
 											</c:if>
 											<c:if test="${empty model.id}">
 												<button class="btn btn-info" type="button" id="btnAddOrUpdateNew">
 													<i class="ace-icon fa fa-check bigger-110"></i>
-													Thêm sản phẩm
+													Lưu
 												</button>
 											</c:if>
 
