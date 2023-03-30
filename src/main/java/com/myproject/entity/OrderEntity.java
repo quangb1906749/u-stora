@@ -1,5 +1,6 @@
 package com.myproject.entity;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,6 +36,15 @@ public class OrderEntity extends BaseEntity{
 	
 	@Column
 	private String shipAddress;
+	
+	@Column
+	private String shipPhone;
+	
+	@Column
+	private int orderTotalQuantity;
+	
+	@Column
+	private BigDecimal orderTotalPrice;
 	
 	@Column
 	private String shipState;
@@ -87,6 +97,30 @@ public class OrderEntity extends BaseEntity{
 		this.shipAddress = shipAddress;
 	}
 
+	public String getShipPhone() {
+		return shipPhone;
+	}
+
+	public void setShipPhone(String shipPhone) {
+		this.shipPhone = shipPhone;
+	}
+
+	public int getOrderTotalQuantity() {
+		return orderTotalQuantity;
+	}
+
+	public void setOrderTotalQuantity(int orderTotalQuantity) {
+		this.orderTotalQuantity = orderTotalQuantity;
+	}
+
+	public BigDecimal getOrderTotalPrice() {
+		return orderTotalPrice;
+	}
+
+	public void setOrderTotalPrice(BigDecimal orderTotalPrice) {
+		this.orderTotalPrice = orderTotalPrice;
+	}
+	
 	public String getShipState() {
 		return shipState;
 	}

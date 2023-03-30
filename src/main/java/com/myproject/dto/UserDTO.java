@@ -16,6 +16,10 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	
 	private Long roleId;
 	private String roleCode;
+	
+	public UserDTO() {
+		super();
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -81,9 +85,6 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	}
 	public void setRoleCode(String roleCode) {
 		this.roleCode = roleCode;
-	}
-	public UserDTO() {
-		super();
 	}
 	
 }

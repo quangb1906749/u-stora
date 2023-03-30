@@ -67,16 +67,19 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right"
 									for="form-field-1">Ngày sinh</label>
-								<div class="col-sm-9">
-									<form:input path="birthday"
-										class="form-control date-picker col-xs-10 col-sm-5"
-										id="id-date-picker-1" type="text"
-										data-date-format="dd-mm-yyyy" style="width:480px" />
-									<span class="input-group-addon"
-										style="width: 15px; height: 34px"> <i
-										class="fa fa-calendar bigger-110"></i>
-									</span>
+									<div class="col-sm-9">
+									<form:input type="date" path="birthday" cssClass="col-xs-10 col-sm-5" />
 								</div>
+<!-- 								<div class="col-sm-9"> -->
+<%-- 									<form:input path="birthday" --%>
+<%-- 										class="form-control date-picker col-xs-10 col-sm-5" --%>
+<%-- 										id="id-date-picker-1" type="date" --%>
+<%-- 										data-date-format="dd-mm-yyyy" style="width:480px" /> --%>
+<!-- 									<span class="input-group-addon" -->
+<!-- 										style="width: 15px; height: 34px"> <i -->
+<!-- 										class="fa fa-calendar bigger-110"></i> -->
+<!-- 									</span> -->
+<!-- 								</div> -->
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right"

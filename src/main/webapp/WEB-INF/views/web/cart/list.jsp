@@ -9,6 +9,27 @@
 
 <meta charset="UTF-8">
 <title>Giỏ hàng</title>
+<style>
+	.nut-dat-hang{
+		 -webkit-text-size-adjust: 100%;
+    	-webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+    margin: 0;
+    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    -webkit-appearance: button;
+    cursor: pointer;
+    background: none repeat scroll 0 0 #5a88ca;
+    border: medium none;
+    color: #fff;
+    padding: 11px 20px;
+    text-transform: uppercase;
+    position: absolute;
+    right: 12%;
+	}
+</style>
 
 </head>
 
@@ -104,7 +125,9 @@
                                     </tbody>
 									
                                 </table>
-									<input type="submit" value="Đặt hàng" name="proceed" class="checkout-button button alt wc-forward" style="position: absolute;right:12%;">
+									<a href="<c:url value='/dat-hang'/>" class="nut-dat-hang">Thanh toán</a>
+<!-- 									<button onclick="myFunction()">Replace document</button> -->
+<!-- 									<input onclick="checkout()" type="submit"value="Đặt hàng" name="proceed"  class="checkout-button button alt wc-forward" style="position: absolute;right:12%;"> -->
                             </form>
 
                             
@@ -122,7 +145,6 @@
 		var quanty = $("#quanty-cart-"+id).val();
 		window.location = "EditCart/"+id+"/"+quanty;
 	});
-	
 	</script>
 	
 </content>

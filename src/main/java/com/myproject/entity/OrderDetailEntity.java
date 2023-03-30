@@ -22,16 +22,11 @@ public class OrderDetailEntity extends BaseEntity{
     private ProductEntity product;
 	
 	@Column
-	private BigDecimal unitPrice;
+	private int quantity;
 	
 	@Column
-	private Float discountPercentage;
+	private BigDecimal totalPrice;
 	
-	@Column
-	private Double discountAmount;
-	
-	@Column
-	private String orderDetailStatus;
 
 	public OrderEntity getOrder() {
 		return order;
@@ -49,37 +44,23 @@ public class OrderDetailEntity extends BaseEntity{
 		this.product = product;
 	}
 
-	public BigDecimal getUnitPrice() {
-		return unitPrice;
+	public int getQuantity() {
+		return quantity;
 	}
 
-	public void setUnitPrice(BigDecimal unitPrice) {
-		this.unitPrice = unitPrice;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
-	public Float getDiscountPercentage() {
-		return discountPercentage;
+	public BigDecimal getTotalPrice() {
+		return totalPrice;
 	}
 
-	public void setDiscountPercentage(Float discountPercentage) {
-		this.discountPercentage = discountPercentage;
+	public void setTotalPrice(BigDecimal totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
-	public Double getDiscountAmount() {
-		return discountAmount;
-	}
-
-	public void setDiscountAmount(Double discountAmount) {
-		this.discountAmount = discountAmount;
-	}
-
-	public String getOrderDetailStatus() {
-		return orderDetailStatus;
-	}
-
-	public void setOrderDetailStatus(String orderDetailStatus) {
-		this.orderDetailStatus = orderDetailStatus;
-	}
+	
 	
 	
 }
