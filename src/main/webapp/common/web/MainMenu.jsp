@@ -15,7 +15,7 @@
 				<div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="<c:url value='/trang-chu'/>">Trang chủ</a></li>
-                        <li><a href="shop.html">Shop page</a></li>
+                        <li><a href="<c:url value='/cua-hang?page=1&limit=6'/>">Cửa hàng</a></li>
                         <li><a href="<c:url value='/chi-tiet-san-pham'/>">Chi tiết sản phẩm</a></li>
                         <li><a href="<c:url value='/gio-hang'/>">Giỏ hàng</a></li>
                         <li><a href="<c:url value='/dat-hang'/>">Thanh toán</a></li>

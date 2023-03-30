@@ -19,7 +19,10 @@ public class MessageUtil {
 		} else if (message.equals("delete_success")) {
 			result.put("message", "Delete success");
 			result.put("alert", "success");
-		} else if (message.equals("error_system")) {
+		} else if (message.equals("order_success")) {
+			result.put("message", "Đặt hàng thành công <br> Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi");
+			result.put("alert", "success");
+		}else if (message.equals("error_system")) {
 			result.put("message", "Error system");
 			result.put("alert", "danger");
 		}
