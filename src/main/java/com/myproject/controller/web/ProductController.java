@@ -1,6 +1,7 @@
 package com.myproject.controller.web;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,45 +29,43 @@ import com.myproject.service.IProductService;
 //import com.myproject.service.IProductService;
 
 @Controller(value = "ProductControllerOfWeb")
-public class ProductController  {
-	
-	@Autowired 
-	private IProductService _productService;
-	
+public class ProductController {
 
-	@RequestMapping(value = {"/chi-tiet-san-pham/{id}"}, method = RequestMethod.GET)
+	@Autowired
+	private IProductService _productService;
+
+	@RequestMapping(value = { "/chi-tiet-san-pham/{id}" }, method = RequestMethod.GET)
 	public ModelAndView singleproductPage(@PathVariable long id) {
 		ModelAndView mav = new ModelAndView("web/product/single-product");
-		
+
 		ProductDTO model = new ProductDTO();
 		model.setListResult(_productService.findAll());
 		mav.addObject("model", model);
-		
-		
+
 		mav.addObject("product", _productService.findById(id));
 		return mav;
-	} 
-	
+	}
+
 	@RequestMapping(value = "SingleProduct/{id}")
 	public String SingleProduct(HttpServletRequest request, HttpSession session, @PathVariable long id) {
-		HashMap<Long, ProductDTO> SProduct = (HashMap<Long,  ProductDTO>)session.getAttribute("SingleProduct");
-		
+		HashMap<Long, ProductDTO> SProduct = (HashMap<Long, ProductDTO>) session.getAttribute("SingleProduct");
+
 //		cart = cartService.AddCart(id, cart);
 //		session.setAttribute("Cart", cart);
 //		session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
 //		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
-		return "redirect:"+request.getHeader("Referer");
+		return "redirect:" + request.getHeader("Referer");
 	}
-	
+
 	@RequestMapping(value = "/trang-san-pham", method = RequestMethod.GET)
-	public ModelAndView showList(@RequestParam("page") int page, 
-								 @RequestParam("limit") int limit, HttpServletRequest request) {
+	public ModelAndView showList(@RequestParam("page") int page, @RequestParam("limit") int limit,
+			HttpServletRequest request) {
 		ProductDTO model = new ProductDTO();
 		model.setPage(page);
 		model.setLimit(limit);
 		ModelAndView mav = new ModelAndView("/product/shop_page");
 		Pageable pageable = new PageRequest(page - 1, limit);
-		model.setListResult(_productService.findByCategory(category));
+		model.setListResult(_productService.findAll(pageable));
 		model.setTotalItem(_productService.getTotalItem());
 		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
 		mav.addObject("model", model);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +14,7 @@
 			<div class="row">
 				<div class="latest-product">
 					<h2 class="section-title">Products</h2>
-					<c:forEach var="product" items="${model.listResult}"
-						varStatus="home">
+					<c:forEach var="product" items="${model.listResult}" varStatus="home">
 						<div class="col-md-4 col-sm-8">
 							<!-- khác biệt -->
 							<div class="single-shop-product">
