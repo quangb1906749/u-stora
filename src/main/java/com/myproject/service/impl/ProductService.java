@@ -62,6 +62,18 @@ public class ProductService implements IProductService {
 	}
 	
 	@Override
+	public List<ProductDTO> findByCategory(String categoryCode){
+		CategoryEntity category = categoryRepository.findOneByCategoryCode(categoryCode);
+		List<ProductDTO> models = new ArrayList<>();
+		List<ProductEntity> entities = productRepository.findByCategory(category);
+		for (ProductEntity item: entities) {
+			ProductDTO productDTO = productConverter.toDto(item);
+			models.add(productDTO);
+		}
+		return models;
+	}
+	
+	@Override
 	@Transactional
 	public ProductDTO save(ProductDTO dto) {
 		CategoryEntity category = categoryRepository.findOneByCategoryCode(dto.getCategoryCode());
