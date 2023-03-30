@@ -30,8 +30,8 @@
 							</ul>
 						</div>
 					</li>
-					<li><a href="#">Others</a></li>
-					<li><a href="#">Contact</a></li>
+<!-- 					<li><a href="#">Others</a></li> -->
+<!-- 					<li><a href="#">Contact</a></li> -->
 				</ul>
 			</div>
 		</div>

@@ -56,11 +56,11 @@
 										<a href="<c:url value='/chi-tiet-san-pham/${ product.id }'/>">${ product.name }</a>
 									</h2>
 									<div class="product-carousel-price">
-										<ins>$ ${ product.price }</ins>
+										<ins>${ product.price }₫</ins>
 									</div>
 
 									<a href="<c:url value="/AddCart/${product.id }"/>" class="add-to-cart-link"><i
-										class="fa fa-shopping-cart"></i> Add to cart</a>
+										class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
 								</div>
 							</div>
 						</c:forEach>

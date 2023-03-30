@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp"%>
 
 <!DOCTYPE html>
 <html>
@@ -32,15 +33,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
     <script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
 
-  </head>
-  <body>
-   
-	<%@ include file="/common/web/header.jsp" %>
-	 <!-- End header area -->
-    
-    <!-- Site Branding Area -->
-    <%@ include file="/common/web/SiteBrandingArea.jsp" %>
-    
+</head>
+<body>
+
+	<%@ include file="/common/web/header.jsp"%>
+	<!-- End header area -->
+
+	<!-- Site Branding Area -->
+	<%@ include file="/common/web/SiteBrandingArea.jsp"%>
+
 	<!-- mainmenu-area -->
     <%@ include file="/common/web/MainMenu.jsp" %>
     
@@ -69,5 +70,5 @@
     <script type="text/javascript" src="<c:url value="/template/web/js/bxslider.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/template/web/js/script.slider.js"/>"></script>
 	<dec:getProperty property="page.script"></dec:getProperty>
-  </body>
+</body>
 </html>

@@ -21,58 +21,65 @@
 
 							<li class="active">Register</li>
 						</ul>
-						<h3>Register</h3>
+						<h3>Đăng ký tài khoản</h3>
 						<hr class="soft" />
 
 						<div class="col-sm-8">
 							<div class="well">
-								<h5>CREATE YOUR ACCOUNT</h5>
-								<br /> Enter your e-mail address to create an account.<br />
+								<h5>TẠO TÀI KHOẢN</h5>
+								<br/>
 								<form:form id="formSubmit" action="/dang-ky" method="POST"
 									modelAttribute="user">
 									<div class="control-group">
-										<label class="control-label" for="inputEmail">E-mail
-											address</label>
+										<label class="control-label" for="inputEmail">Địa chỉ email</label>
 										<div class="controls">
 											<form:input type="text" path="email" class="span3"
-												placeholder="Email" />
+												placeholder="" />
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="inputEmail">Username</label>
+										<label class="control-label" for="inputEmail">Tên đăng nhập</label>
 										<div class="controls">
 											<form:input type="text" path="userName" class="span3"
-												placeholder="Username" />
+												placeholder="" />
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="inputEmail">Password</label>
+										<label class="control-label" for="inputEmail">Mật khẩu</label>
 										<div class="controls">
 											<form:input type="password" path="password" class="span3"
-												placeholder="Password" />
+												placeholder="" />
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="inputEmail">Fullname</label>
+										<label class="control-label" for="inputEmail">Họ tên</label>
 										<div class="controls">
 											<form:input type="text" path="fullName" class="span3"
-												placeholder="Fullname" />
+												placeholder="Nhập đầy đủ họ tên" />
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="inputEmail">Birthday</label>
+										<label class="control-label" for="inputEmail">Năm sinh</label>
 										<div class="controls">
 											<form:input type="date" path="birthday" class="span3"
-												placeholder="mm/dd/yyyy" />
+												placeholder="" />
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="inputEmail">Address</label>
+										<label class="control-label" for="inputEmail">Địa chỉ</label>
 										<div class="controls">
 											<form:input type="text" path="address" class="span3"
-												placeholder="Address" />
+												placeholder="Nhập địa chỉ " />
 										</div>
 									</div>
+									<div class="control-group">
+										<label class="control-label" for="inputEmail">Số điện thoại</label>
+										<div class="controls">
+											<form:input type="text" path="phone" class="span3"
+												placeholder="" />
+										</div>
+									</div>
+									<br/>
 									<form:hidden path="id" id="newId" />
 									<div class="clearfix form-actions">
 										<div class="col-md-offset-3 col-md-9">
@@ -80,7 +87,7 @@
 											<c:if test="${empty model.id}">
 												<button class="btn btn-info" type="button"
 													id="btnAddOrUpdateNew">
-													<i class="ace-icon fa fa-check bigger-110"></i> Thêm
+													Đăng ký
 												</button>
 											</c:if>
 										</div>
