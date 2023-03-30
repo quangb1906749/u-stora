@@ -63,12 +63,12 @@
 
 							<div class="col-sm-6">
 								<div class="product-inner">
-									<h2 class="product-name">${ product.categoryName }</h2>
+									<h2 class="product-name">${ product.name }</h2>
 									<div class="product-inner-price">
 										<ins>${ product.price }₫</ins>
 									</div>
 
-									<form action="" class="cart">
+									<form action="<c:url value="/AddCart/${product.id }"/>" class="cart">
 										<div class="quantity">
 											<input type="number" size="4" class="input-text qty text"
 												title="Qty" value="1" name="quantity" min="1" step="1">
