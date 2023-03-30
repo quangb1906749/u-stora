@@ -63,7 +63,7 @@ public class ProductController {
 		ProductDTO model = new ProductDTO();
 		model.setPage(page);
 		model.setLimit(limit);
-		ModelAndView mav = new ModelAndView("/product/shop_page");
+		ModelAndView mav = new ModelAndView("web/product/shop_page");
 		Pageable pageable = new PageRequest(page - 1, limit);
 		model.setListResult(_productService.findAll(pageable));
 		model.setTotalItem(_productService.getTotalItem());

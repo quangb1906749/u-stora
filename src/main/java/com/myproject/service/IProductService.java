@@ -15,5 +15,4 @@ public interface IProductService {
 	List<ProductDTO> findByCategory(String categoryCode);
 	ProductDTO save(ProductDTO dto);
 	void delete(long[] ids);
-	ProductDTO findByCategory(String categoryCode);
 }

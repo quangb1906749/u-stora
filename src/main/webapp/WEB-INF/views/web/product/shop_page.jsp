@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="latest-product">
-					<h2 class="section-title">Products</h2>
+					<h2 class="section-title">TRANG SẢN PHẨM</h2>
 					<c:forEach var="product" items="${model.listResult}" varStatus="home">
 						<div class="col-md-4 col-sm-8">
 							<!-- khác biệt -->
@@ -36,13 +36,15 @@
 							</div>
 						</div>
 					</c:forEach>
-					<ul class="pagination" id="pagination"></ul>
-					<input type="hidden" value="" id="page" name="page" /> <input
-						type="hidden" value="" id="limit" name="limit" />
-
+					
+					
 
 
 				</div>
+				<ul class="pagination" id="pagination"></ul>
+					<input type="hidden" value="" id="page" name="page" /> 
+					<input type="hidden" value="" id="limit" name="limit" />
+				
 			</div>
 		</div>
 	</div>
@@ -63,7 +65,7 @@
 				startPage : currentPage,
 				onPageClick : function(event, page) {
 					if (currentPage != page) {
-						$('#limit').val(10);
+						$('#limit').val(9);
 						$('#page').val(page);
 						$('#formSubmit').submit();
 					}
