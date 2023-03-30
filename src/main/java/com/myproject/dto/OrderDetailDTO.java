@@ -6,6 +6,8 @@ public class OrderDetailDTO extends AbstractDTO<CategoryDTO>{
 	private int quantity;
 	private BigDecimal totalPrice;
 	private Long productId;
+	private String productName;
+	private BigDecimal productPrice;
 	private Long orderId;
 		
 	public OrderDetailDTO() {
@@ -28,6 +30,18 @@ public class OrderDetailDTO extends AbstractDTO<CategoryDTO>{
 	}
 	public void setProductId(Long productId) {
 		this.productId = productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public BigDecimal getProductPrice() {
+		return productPrice;
+	}
+	public void setProductPrice(BigDecimal productPrice) {
+		this.productPrice = productPrice;
 	}
 	public Long getOrderId() {
 		return orderId;

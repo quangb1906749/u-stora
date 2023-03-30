@@ -5,7 +5,39 @@
 <c:url var="userAPI" value="/api/user" />
 <html>
 <head>
-<title>Chỉnh sửa thông tin người dùng</title>
+<c:if test="${not empty model.id}">
+	<title>Cập nhật thông tin người dùng</title>
+</c:if>
+<c:if test="${empty model.id}">
+	<title>Thêm người dùng</title>
+</c:if>
+<style>
+.birthday {
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	box-sizing: border-box;
+	font: inherit;
+	margin: 0;
+	position: relative;
+	min-height: 1px;
+	float: left;
+	display: block;
+	height: 34px;
+	line-height: 1.42857143;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	border-radius: 0 !important;
+	color: #858585;
+	border: 1px solid #d5d5d5;
+	padding: 5px 4px 6px;
+	font-size: 14px;
+	font-family: inherit;
+	box-shadow: none !important;
+	transition-duration: .1s;
+	border-color: #b5b5b5;
+	background: #FFF;
+	width: 480px;
+}
+</style>
 </head>
 <body>
 	<div class="main-content">
@@ -20,11 +52,16 @@
 
 				<ul class="breadcrumb">
 					<li><i class="ace-icon fa fa-home home-icon"></i> <a
-						href="<c:url value='/quan-tri/trang-chu'/>">Home</a></li>
+						href="<c:url value='/quan-tri/trang-chu'/>">Trang chủ</a></li>
 
 					<li><a
-						href="<c:url value='/quan-tri/nguoi-dung/danh-sach?page=1&limit=2'/>">Forms</a></li>
-					<li class="active">Form Elements</li>
+						href="<c:url value='/quan-tri/nguoi-dung/danh-sach?page=1&limit=2'/>">Danh
+							sách</a></li>
+					<li class="active"><c:if test="${not empty model.id}">
+							Cập nhật thông tin người dùng
+						</c:if> <c:if test="${empty model.id}">
+							Thêm người dùng
+						</c:if></li>
 				</ul>
 				<!-- /.breadcrumb -->
 			</div>
@@ -66,72 +103,73 @@
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right"
-									for="form-field-1">Ngày sinh</label>
+									for="form-field-1">Ngày sinh</label> <<<<<<< HEAD
+								<div class="col-sm-9">
+									<form:input type="date" path="birthday"
+										cssClass="col-xs-10 col-sm-5" />
+									=======
 									<div class="col-sm-9">
-									<form:input type="date" path="birthday" cssClass="col-xs-10 col-sm-5" />
-								</div>
-<!-- 								<div class="col-sm-9"> -->
-<%-- 									<form:input path="birthday" --%>
-<%-- 										class="form-control date-picker col-xs-10 col-sm-5" --%>
-<%-- 										id="id-date-picker-1" type="date" --%>
-<%-- 										data-date-format="dd-mm-yyyy" style="width:480px" /> --%>
-<!-- 									<span class="input-group-addon" -->
-<!-- 										style="width: 15px; height: 34px"> <i -->
-<!-- 										class="fa fa-calendar bigger-110"></i> -->
-<!-- 									</span> -->
-<!-- 								</div> -->
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right"
-									for="form-field-1">Số điện thoại</label>
-								<div class="col-sm-9">
-									<form:input path="phone" cssClass="col-xs-10 col-sm-5" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right"
-									for="form-field-1">Email</label>
-								<div class="col-sm-9">
-									<form:input path="email" cssClass="col-xs-10 col-sm-5" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right"
-									for="form-field-1">Địa chỉ</label>
-								<div class="col-sm-9">
-									<form:input path="address" cssClass="col-xs-10 col-sm-5" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right"
-									for="form-field-1">Trạng thái</label>
-								<div class="col-sm-9">
-									<form:input path="status" cssClass="col-xs-10 col-sm-5" />
-								</div>
-							</div>
+										<form:input path="birthday"
+											class="form-control date-picker col-xs-10 col-sm-5 birthday"
+											id="id-date-picker-1" type="text"
+											data-date-format="dd-mm-yyyy" style="width:480px" />
+										<span class="input-group-addon"
+											style="width: 15px; height: 34px"> <i
+											class="fa fa-calendar bigger-110"></i>
+										</span>
 
-							<form:hidden path="id" id="newId" />
-							<div class="clearfix form-actions">
-								<div class="col-md-offset-3 col-md-9">
-									<c:if test="${not empty model.id}">
-										<button class="btn btn-info" type="button"
-											id="btnAddOrUpdateNew">
-											<i class="ace-icon fa fa-check bigger-110"></i> Cập nhật
-										</button>
-									</c:if>
-									<c:if test="${empty model.id}">
-										<button class="btn btn-info" type="button"
-											id="btnAddOrUpdateNew">
-											<i class="ace-icon fa fa-check bigger-110"></i> Thêm
-										</button>
-									</c:if>
-									<!-- admin usercontroller -->
-									&nbsp; &nbsp; &nbsp;
-									<button class="btn" type="reset">
-										<i class="ace-icon fa fa-undo bigger-110"></i> Hủy
-									</button>
-								</div>
-							</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"
+											for="form-field-1">Số điện thoại</label>
+										<div class="col-sm-9">
+											<form:input path="phone" cssClass="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"
+											for="form-field-1">Email</label>
+										<div class="col-sm-9">
+											<form:input path="email" cssClass="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"
+											for="form-field-1">Địa chỉ</label>
+										<div class="col-sm-9">
+											<form:input path="address" cssClass="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"
+											for="form-field-1">Trạng thái</label>
+										<div class="col-sm-9">
+											<form:input path="status" cssClass="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									<form:hidden path="id" id="newId" />
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<c:if test="${not empty model.id}">
+												<button class="btn btn-info" type="button"
+													id="btnAddOrUpdateNew">
+													<i class="ace-icon fa fa-check bigger-110"></i> Cập nhật
+												</button>
+											</c:if>
+											<c:if test="${empty model.id}">
+												<button class="btn btn-info" type="button"
+													id="btnAddOrUpdateNew">
+													<i class="ace-icon fa fa-check bigger-110"></i> Thêm
+												</button>
+											</c:if>
+											<!-- admin usercontroller -->
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i> Hủy
+											</button>
+										</div>
+									</div>
 						</form:form>
 					</div>
 				</div>

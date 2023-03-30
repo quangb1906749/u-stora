@@ -1,26 +1,34 @@
 package com.myproject.dto;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-public class OrderDTO extends AbstractDTO<CategoryDTO>{
+public class OrderDTO extends AbstractDTO<OrderDTO>{
 	private String fullName;
 	private String email;
 	private Long userId;
 	private String shipPhone;
 	private String shipAddress;
+	private String shipState;
 	private int orderTotalQuantity;
 	private BigDecimal orderTotalPrice;
+	private List<OrderDetailDTO> listOrderDetail = new ArrayList<>();
+	
 	
 		
 	public OrderDTO() {
 		super();
 	}
-	public OrderDTO(Long userId, String shipPhone, String shipAddress, int orderTotalQuantity,
-			BigDecimal orderTotalPrice) {
+	public OrderDTO(String fullName, String email, Long userId, String shipPhone, String shipAddress, String shipState,
+			int orderTotalQuantity, BigDecimal orderTotalPrice) {
 		super();
+		this.fullName = fullName;
+		this.email = email;
 		this.userId = userId;
 		this.shipPhone = shipPhone;
 		this.shipAddress = shipAddress;
+		this.shipState = shipState;
 		this.orderTotalQuantity = orderTotalQuantity;
 		this.orderTotalPrice = orderTotalPrice;
 	}
@@ -41,6 +49,12 @@ public class OrderDTO extends AbstractDTO<CategoryDTO>{
 	}
 	public void setShipAddress(String shipAddress) {
 		this.shipAddress = shipAddress;
+	}
+	public String getShipState() {
+		return shipState;
+	}
+	public void setShipState(String shipState) {
+		this.shipState = shipState;
 	}
 	public int getOrderTotalQuantity() {
 		return orderTotalQuantity;
@@ -65,6 +79,12 @@ public class OrderDTO extends AbstractDTO<CategoryDTO>{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public List<OrderDetailDTO> getListOrderDetail() {
+		return listOrderDetail;
+	}
+	public void setListOrderDetail(List<OrderDetailDTO> listOrderDetail) {
+		this.listOrderDetail = listOrderDetail;
 	}
 	
 	

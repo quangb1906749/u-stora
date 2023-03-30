@@ -5,7 +5,12 @@
 <c:url var="paymentTypeAPI" value="/api/paymentType"/>
 <html>
 <head>
-<title>Chỉnh sửa phương thức thanh toán</title>
+	<c:if test="${not empty model.id}">
+						<title>Cập nhật phương thức thanh toán</title>
+	</c:if>
+	<c:if test="${empty model.id}">
+						<title>Thêm phương thức thanh toán</title>
+	</c:if>
 </head>
 <body>
 <div class="main-content">
@@ -19,11 +24,18 @@
 			</script>
 
 			<ul class="breadcrumb">
-				<li><i class="ace-icon fa fa-home home-icon"></i> <a href="<c:url value='/quan-tri/trang-chu'/>">Home</a>
+				<li><i class="ace-icon fa fa-home home-icon"></i> <a href="<c:url value='/quan-tri/trang-chu'/>">Trang chủ</a>
 				</li>
 
-				<li><a href="<c:url value='/quan-tri/phuong-thuc-thanh-toan/danh-sach?page=1&limit=2'/>">Forms</a></li>
-				<li class="active">Form Elements</li>
+				<li><a href="<c:url value='/quan-tri/phuong-thuc-thanh-toan/danh-sach?page=1&limit=2'/>">Danh sách</a></li>
+				<li class="active">
+						<c:if test="${not empty model.id}">
+							Cập nhật phương thức thanh toán
+						</c:if>
+						<c:if test="${empty model.id}">
+							Thêm phương thức thanh toán
+						</c:if>
+					</li>
 			</ul>
 			<!-- /.breadcrumb -->
 		</div>

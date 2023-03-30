@@ -1,5 +1,7 @@
 package com.myproject.converter;
 
+import java.sql.Timestamp;
+
 import org.springframework.stereotype.Component;
 
 import com.myproject.dto.OrderDTO;
@@ -12,10 +14,13 @@ public class OrderConverter {
 		OrderDTO result = new OrderDTO();
 		result.setId(entity.getId());
 		result.setUserId(entity.getUser().getId());
+		result.setFullName(entity.getUser().getFullName());
 		result.setShipPhone(entity.getShipPhone());
 		result.setShipAddress(entity.getShipAddress());
+		result.setShipState(entity.getShipState());
 		result.setOrderTotalQuantity(entity.getOrderTotalQuantity());
 		result.setOrderTotalPrice(entity.getOrderTotalPrice());
+		result.setCreatedDate(entity.getCreatedDate());
 		return result;
 	}
 	
@@ -23,6 +28,7 @@ public class OrderConverter {
 		OrderEntity result = new OrderEntity();
 		result.setShipPhone(dto.getShipPhone());
 		result.setShipAddress(dto.getShipAddress());
+		result.setShipState(dto.getShipState());
 		result.setOrderTotalQuantity(dto.getOrderTotalQuantity());
 		result.setOrderTotalPrice(dto.getOrderTotalPrice());
 		return result;
@@ -31,6 +37,7 @@ public class OrderConverter {
 	public OrderEntity toEntity(OrderEntity result, OrderDTO dto) {
 		result.setShipPhone(dto.getShipPhone());
 		result.setShipAddress(dto.getShipAddress());
+		result.setShipState(dto.getShipState());
 		result.setOrderTotalQuantity(dto.getOrderTotalQuantity());
 		result.setOrderTotalPrice(dto.getOrderTotalPrice());
 		return result;
