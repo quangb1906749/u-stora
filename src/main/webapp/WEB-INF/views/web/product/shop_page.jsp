@@ -1,20 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Trang sản phẩm</title>
 </head>
 <body>
+	<div class="product-big-title-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="product-bit-title text-center">
+						<h2>TRANG SẢN PHẨM</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="single-product-area">
 		<div class="zigzag-bottom"></div>
 		<div class="container">
 			<div class="row">
 				<div class="latest-product">
-					<h2 class="section-title">TRANG SẢN PHẨM</h2>
-					<c:forEach var="product" items="${model.listResult}" varStatus="home">
+					<c:forEach var="product" items="${model.listResult}"
+						varStatus="home">
 						<div class="col-md-4 col-sm-8">
 							<!-- khác biệt -->
 							<div class="single-shop-product">
@@ -36,28 +47,20 @@
 							</div>
 						</div>
 					</c:forEach>
-					
-					
-
-
 				</div>
-				<ul class="pagination" id="pagination"></ul>
-					<input type="hidden" value="" id="page" name="page" /> 
-					<input type="hidden" value="" id="limit" name="limit" />
 				
+
 			</div>
+			<ul class="pagination" id="pagination"></ul>
+				<input type="hidden" value="" id="page" name="page" /> <input
+					type="hidden" value="" id="limit" name="limit" />
 		</div>
 	</div>
+	<content tag="script">
 	<script>
 		<script>
-		var totalPages = $
-		{
-			model.totalPage
-		};
-		var currentPage = $
-		{
-			model.page
-		};
+		var totalPages = ${	model.totalPage	};
+		var currentPage = ${ model.page };
 		$(function() {
 			window.pagObj = $('#pagination').twbsPagination({
 				totalPages : totalPages,
@@ -73,5 +76,6 @@
 			});
 		});
 	</script>
+	</content>
 </body>
 </html>
