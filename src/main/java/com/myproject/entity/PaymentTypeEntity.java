@@ -21,6 +21,9 @@ public class PaymentTypeEntity extends BaseEntity{
 	private String paymentName;
 	
 	@Column
+	private String paymentDescription;
+	
+	@Column
 	private String paymentImage;
 
 	public List<OrderEntity> getOrder() {
@@ -45,6 +48,14 @@ public class PaymentTypeEntity extends BaseEntity{
 
 	public void setPaymentName(String paymentName) {
 		this.paymentName = paymentName;
+	}
+
+	public String getPaymentDescription() {
+		return paymentDescription;
+	}
+
+	public void setPaymentDescription(String paymentDescription) {
+		this.paymentDescription = paymentDescription;
 	}
 
 	public String getPaymentImage() {

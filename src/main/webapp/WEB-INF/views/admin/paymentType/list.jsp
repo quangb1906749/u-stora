@@ -64,6 +64,7 @@
 														<th><input type="checkbox" id="checkAll"></th>
 														<th>Tên danh mục</th>
 														<th>Code</th>
+														<th>Mô tả</th>
 														<th>Thao tác</th>
 													</tr>
 												</thead>
@@ -73,6 +74,7 @@
 															<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
 															<td>${item.paymentName}</td>
 															<td>${item.paymentCode}</td>
+															<td>${item.paymentDescription }</td>
 															<td>
 																<c:url var="updateCategoryURL" value="/quan-tri/phuong-thuc-thanh-toan/chinh-sua">
 																	<c:param name="id" value="${item.id}"/>															

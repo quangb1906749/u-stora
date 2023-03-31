@@ -17,6 +17,7 @@ import com.myproject.Util.MessageUtil;
 import com.myproject.dto.OrderDTO;
 import com.myproject.service.ICategoryService;
 import com.myproject.service.IOrderService;
+import com.myproject.service.IPaymentTypeService;
 
 @Controller(value = "orderControllerOfAdmin")
 public class OrderController {
@@ -25,7 +26,7 @@ public class OrderController {
 	private IOrderService orderService;
 	
 	@Autowired
-	private ICategoryService categoryService;
+	private IPaymentTypeService paymentTypeService;
 	
 	@Autowired
 	private MessageUtil messageUtil;
@@ -62,7 +63,7 @@ public class OrderController {
 			mav.addObject("message", message.get("message"));
 			mav.addObject("alert", message.get("alert"));
 		}
-		mav.addObject("categories", categoryService.findAll());
+		mav.addObject("paymentType", paymentTypeService.findAll());
 		mav.addObject("model", model);
 		return mav;
 	}

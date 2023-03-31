@@ -13,9 +13,12 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 	private String shipState;
 	private int orderTotalQuantity;
 	private BigDecimal orderTotalPrice;
+	
 	private List<OrderDetailDTO> listOrderDetail = new ArrayList<>();
 	
-	
+	private Long paymentTypeId;
+	private String paymentTypeCode;
+	private String paymentTypeName;
 		
 	public OrderDTO() {
 		super();
@@ -85,6 +88,24 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 	}
 	public void setListOrderDetail(List<OrderDetailDTO> listOrderDetail) {
 		this.listOrderDetail = listOrderDetail;
+	}
+	public Long getPaymentTypeId() {
+		return paymentTypeId;
+	}
+	public void setPaymentTypeId(Long paymentTypeId) {
+		this.paymentTypeId = paymentTypeId;
+	}
+	public String getPaymentTypeCode() {
+		return paymentTypeCode;
+	}
+	public void setPaymentTypeCode(String paymentTypeCode) {
+		this.paymentTypeCode = paymentTypeCode;
+	}
+	public String getPaymentTypeName() {
+		return paymentTypeName;
+	}
+	public void setPaymentTypeName(String paymentTypeName) {
+		this.paymentTypeName = paymentTypeName;
 	}
 	
 	

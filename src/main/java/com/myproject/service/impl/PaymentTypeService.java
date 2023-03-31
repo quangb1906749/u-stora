@@ -47,6 +47,17 @@ public class PaymentTypeService implements IPaymentTypeService {
 	}
 	
 	@Override
+	public List<PaymentTypeDTO> findAllList() {
+		List<PaymentTypeDTO> models = new ArrayList<>();
+		List<PaymentTypeEntity> entities = paymentTypeRepository.findAll();
+		for (PaymentTypeEntity item: entities) {
+			PaymentTypeDTO paymentTypeDTO = paymentTypeConverter.toDto(item);
+			models.add(paymentTypeDTO);
+		}
+		return models;
+	}
+	
+	@Override
 	public int getTotalItem() {
 		return (int) paymentTypeRepository.count();
 	}

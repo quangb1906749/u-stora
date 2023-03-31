@@ -14,6 +14,7 @@ public class PaymentTypeConverter {
 		result.setPaymentCode(entity.getPaymentCode());
 		result.setPaymentName(entity.getPaymentName());
 		result.setPaymentImage(entity.getPaymentImage());
+		result.setPaymentDescription(entity.getPaymentDescription());
 		return result;
 	}
 	
@@ -22,6 +23,7 @@ public class PaymentTypeConverter {
 		result.setPaymentCode(dto.getPaymentCode());
 		result.setPaymentName(dto.getPaymentName());
 		result.setPaymentImage(dto.getPaymentImage());
+		result.setPaymentDescription(dto.getPaymentDescription());
 		return result;
 	}
 	
@@ -29,6 +31,7 @@ public class PaymentTypeConverter {
 		result.setPaymentCode(dto.getPaymentCode());
 		result.setPaymentName(dto.getPaymentName());
 		result.setPaymentImage(dto.getPaymentImage());
+		result.setPaymentDescription(dto.getPaymentDescription());
 		return result;
 	}
 	
