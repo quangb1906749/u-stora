@@ -40,7 +40,7 @@
 <!-- 								<h5 >Mời nhập tài khoản</h5> -->
 								<hr style="color:blue; margin-bottom:-5px">
 								<br/>
-								<form action="j_spring_security_check" style="margin: auto; width: 50%;">
+								<form action="j_spring_security_check" id="formLogin" method="post" style="margin: auto; width: 50%;">
 									
 									<div class="control-group">
 										<label class="control-label" for="inputEmail">Tên đăng nhập</label>
