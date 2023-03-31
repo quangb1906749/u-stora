@@ -21,6 +21,8 @@ public class OrderConverter {
 		result.setOrderTotalQuantity(entity.getOrderTotalQuantity());
 		result.setOrderTotalPrice(entity.getOrderTotalPrice());
 		result.setCreatedDate(entity.getCreatedDate());
+		result.setPaymentTypeCode(entity.getPaymentType().getPaymentCode());
+		result.setPaymentTypeName(entity.getPaymentType().getPaymentName());
 		return result;
 	}
 	

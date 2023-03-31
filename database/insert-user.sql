@@ -24,12 +24,12 @@ insert into product(name, image, price, quantity, description, shortdescription,
 insert into role(code,name) values('ADMIN','Quản trị');
 insert into role(code,name) values('USER','Người dùng');
 
-insert into user(username,password,fullname,status)
-values('admin','$2a$10$/RUbuT9KIqk6f8enaTQiLOXzhnUkiwEJRdtzdrMXXwU7dgnLKTCYG','trương tùng lâm',1);
-insert into user(username,password,fullname,status)
-values('nguyenvana','$2a$10$/RUbuT9KIqk6f8enaTQiLOXzhnUkiwEJRdtzdrMXXwU7dgnLKTCYG','nguyễn văn A',1);
-insert into user(username,password,fullname,status)
-values('nguyenvanb','$2a$10$/RUbuT9KIqk6f8enaTQiLOXzhnUkiwEJRdtzdrMXXwU7dgnLKTCYG','nguyễn văn B',1);
+insert into user(username,password,fullname,email,status)
+values('admin','$2a$10$/RUbuT9KIqk6f8enaTQiLOXzhnUkiwEJRdtzdrMXXwU7dgnLKTCYG','Nguyễn Thanh Quang','admin@gmail.com',1);
+insert into user(username,password,fullname,email,status)
+values('nguyenvana','$2a$10$/RUbuT9KIqk6f8enaTQiLOXzhnUkiwEJRdtzdrMXXwU7dgnLKTCYG','nguyễn văn A','nguyenvana@gmail.com',1);
+insert into user(username,password,fullname,email,status)
+values('nguyenvanb','$2a$10$/RUbuT9KIqk6f8enaTQiLOXzhnUkiwEJRdtzdrMXXwU7dgnLKTCYG','nguyễn văn B','nguyenvanb@gmail.com',1);
 
 INSERT INTO user_role(userid,roleid) VALUES (1,1);
 INSERT INTO user_role(userid,roleid) VALUES (2,2);
@@ -39,3 +39,7 @@ insert into slides(img, caption, content) values('h4-slide.png','iPhone 6Plus','
 insert into slides(img, caption, content) values('h4-slide2.png','by one, get one 50% off','school supplies & backpacks');
 insert into slides(img, caption, content) values('h4-slide3.png','Apple Store Ipod','Select Item');
 insert into slides(img, caption, content) values('h4-slide4.png','Apple Store Ipod','& Phone');
+
+insert into payment_type(paymentCode, paymentDescription, paymentName) values('chuyen-khoan','Thực hiện thanh toán vào ngay tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng Mã đơn hàng của bạn trong phần nội dung thanh toán. Đơn hàng sẽ được giao sau khi tiền đã chuyển.','Chuyển khoản ngân hàng');
+insert into payment_type(paymentCode, paymentDescription, paymentName) values('tien-mat','Trả tiền mặt cho nhân viên giao hàng khi nhận được hàng.','Trà tiền mặt');
+insert into payment_type(paymentCode, paymentDescription, paymentName) values('paypal','Sử dụng thẻ ghi nợ của bạn nếu bạn không có tài khoản PayPal.','PayPal');

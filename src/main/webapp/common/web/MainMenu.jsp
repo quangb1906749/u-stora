@@ -15,8 +15,13 @@
 				<div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="<c:url value='/trang-chu'/>">Trang chủ</a></li>
+<<<<<<< HEAD
                         <li><a href="shop.html">Shop page</a></li>
                         <li><a href="<c:url value='/gioi-thieu'/>">Giới thiệu</a></li>
+=======
+                        <li><a href="<c:url value='/cua-hang?page=1&limit=6'/>">Cửa hàng</a></li>
+                        <li><a href="<c:url value='/chi-tiet-san-pham'/>">Chi tiết sản phẩm</a></li>
+>>>>>>> c3098a5e0ca57ec049a27d4bec0dc58b6d5f9177
                         <li><a href="<c:url value='/gio-hang'/>">Giỏ hàng</a></li>
                         <li><a href="<c:url value='/dat-hang'/>">Thanh toán</a></li>
 					<!--<li><a href="#">Category</a></li> -->
@@ -30,7 +35,11 @@
 							</ul>
 						</div>
 					</li>
+<<<<<<< HEAD
 <!-- 					<li><a href="#">Giới thiệu</a></li> -->
+=======
+<!-- 					<li><a href="#">Others</a></li> -->
+>>>>>>> c3098a5e0ca57ec049a27d4bec0dc58b6d5f9177
 <!-- 					<li><a href="#">Contact</a></li> -->
 				</ul>
 			</div>

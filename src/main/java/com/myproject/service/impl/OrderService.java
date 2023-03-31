@@ -14,9 +14,11 @@ import com.myproject.dto.OrderDTO;
 import com.myproject.dto.OrderDetailDTO;
 import com.myproject.entity.OrderDetailEntity;
 import com.myproject.entity.OrderEntity;
+import com.myproject.entity.PaymentTypeEntity;
 import com.myproject.entity.UserEntity;
 import com.myproject.repository.OrderDetailRepository;
 import com.myproject.repository.OrderRepository;
+import com.myproject.repository.PaymentTypeRepository;
 import com.myproject.repository.UserRepository;
 import com.myproject.service.IOrderService;
 
@@ -37,6 +39,9 @@ public class OrderService implements IOrderService {
 	
 	@Autowired
 	private OrderDetailConverter orderDetailConverter;
+	
+	@Autowired
+	private PaymentTypeRepository paymentTypeRepository;
 	
 	@Override
 	public List<OrderDTO> findAll(Pageable pageable) {
@@ -82,15 +87,18 @@ public class OrderService implements IOrderService {
 	@Override
 	@Transactional
 	public OrderDTO save(OrderDTO dto) {
+		PaymentTypeEntity paymentType = paymentTypeRepository.findOneByPaymentCode(dto.getPaymentTypeCode());
 		UserEntity user = userRepository.findOne(dto.getUserId());
 		OrderEntity orderEntity = new OrderEntity();
 		if (dto.getId() != null) {
 			OrderEntity oldOrder = orderRepository.findOne(dto.getId());
 			oldOrder.setUser(user);
+			oldOrder.setPaymentType(paymentType);
 			orderEntity = orderConverter.toEntity(oldOrder, dto);
 		} else {
 			orderEntity = orderConverter.toEntity(dto);
 			orderEntity.setUser(user);
+			orderEntity.setPaymentType(paymentType);
 		}
 		return orderConverter.toDto(orderRepository.save(orderEntity));
 	}

@@ -11,8 +11,8 @@
                             <li><a href="<c:url value='/gio-hang'/>"><i class="fa fa-user"></i> Giỏ hàng</a></li>
                             <li><a href="<c:url value='/dat-hang'/>"><i class="fa fa-user"></i> Thanh toán</a></li>
                             <security:authorize access = "isAnonymous()">
-                            	<li><a href="<c:url value="/dang-nhap"/>"><i class="fa fa-user"></i> Login</a></li>
-                            	<li><a href="<c:url value="/dang-ky"/>"><i class="fa fa-user"></i> Register</a></li>
+                            	<li><a href="<c:url value="/dang-nhap"/>"><i class="fa fa-user"></i> Đăng nhập</a></li>
+                            	<li><a href="<c:url value="/dang-ky"/>"><i class="fa fa-user"></i> Đăng ký</a></li>
 							</security:authorize>
 							<security:authorize access = "isAuthenticated()">
 								<li class="nav-item"><a class="nav-link" href="#">Wellcome <%=SecurityUtils.getPrincipal().getFullName()%></a></li>
