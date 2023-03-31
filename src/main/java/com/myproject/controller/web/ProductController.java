@@ -56,14 +56,15 @@ public class ProductController {
 //		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
 		return "redirect:" + request.getHeader("Referer");
 	}
-
-	@RequestMapping(value = "/trang-san-pham", method = RequestMethod.GET)
-	public ModelAndView showList(@RequestParam("page") int page, @RequestParam("limit") int limit,
-			HttpServletRequest request) {
+	
+	@RequestMapping(value = {"/cua-hang"}, method = RequestMethod.GET)
+	public ModelAndView storePage(@RequestParam("page") int page, 
+			 @RequestParam("limit") int limit, HttpServletRequest request) {
 		ProductDTO model = new ProductDTO();
 		model.setPage(page);
 		model.setLimit(limit);
-		ModelAndView mav = new ModelAndView("web/product/shop_page");
+
+		ModelAndView mav = new ModelAndView("web/product/store");
 		Pageable pageable = new PageRequest(page - 1, limit);
 		model.setListResult(_productService.findAll(pageable));
 		model.setTotalItem(_productService.getTotalItem());

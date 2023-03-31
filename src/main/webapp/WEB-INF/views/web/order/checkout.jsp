@@ -3,7 +3,6 @@
 <%@ include file="/common/taglib.jsp"%>
 <%@ page import="com.myproject.Util.SecurityUtils" %>
 <c:url var="orderURL" value="/dat-hang"/>
-<c:url var="editUserURL" value="/dat-hang"/>
 <c:url var="orderAPI" value="/dat-hang"/>
 <!DOCTYPE html>
 
@@ -34,10 +33,14 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-
+				<c:if test="${not empty message}">
+						<div class="alert alert-${alert}">
+  							${message}
+						</div>
+					</c:if>
                 <div class="col-md-4">
                 </div>
-
+				
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
@@ -46,7 +49,7 @@
                             	<h2 style="text-align: center;"><a href="<c:url value='/dang-nhap'/>">ĐĂNG NHẬP NGAY</a></h2>
                             </security:authorize>
                             <security:authorize access="isAuthenticated()">
-                            	<form:form id="formSubmit" action="${orderURL }" method="POST" modelAttribute="order" class="checkout" name="checkout">
+                            	<form:form id="formSubmit" modelAttribute="model" class="checkout" name="checkout">
                                     <div id="customer_details" class="col2-set">
                                         <div class="col-1">
                                             <div class="woocommerce-billing-fields">
@@ -97,7 +100,7 @@
 
                                                     <input type="submit" value="Đặt hàng" data-value="Place order" value="Đặt hàng"
                                                         id="place_order" name="woocommerce_checkout_place_order"
-                                                        class="button alt">
+                                                        class="button alt" onclick="checkoutOrder">
                                                     
                                                 </div>
                                             </div>
@@ -114,7 +117,29 @@
             </div>
         </div>
     </div>
-    
+    <script>
+    $('#place_order').click(function (e) {
+    	e.preventDefault();
+	    var data = {};
+	    var formData = $('#formSubmit').serializeArray();
+	    $.each(formData, function (i, v) {
+            data[""+v.name+""] = v.value;
+        });
+	    $.ajax({
+            url: '${orderAPI}',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            complete: function (result) {
+            	window.location.href = "${orderURL}?message=order_success";
+            },
+//             error: function (error) {
+//             	window.location.href = "${orderURL}?message=error_system";
+//             },
+        });
+    });
+    </script>
 
 </body>
 
