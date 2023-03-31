@@ -46,7 +46,7 @@
 				<div class="">
 					<div class="product-content-right">
 						<div class="product-breadcroumb">
-							<a href="">Home</a> <a href="">Category Name</a> <a href="">${ product.categoryName }</a>
+							<a href="<c:url value='/trang-chu'/>">Home</a> <a href="">Category Name</a> <a href="">${ product.categoryName }</a>
 						</div>
 
 						<div class="row">
