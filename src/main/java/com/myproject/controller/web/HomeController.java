@@ -48,6 +48,12 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/gioi-thieu", method = RequestMethod.GET)
+	public ModelAndView aboutusPage() {
+		ModelAndView mav = new ModelAndView("web/about/about-us");
+		return mav;
+	}
+	
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		ModelAndView mav = new ModelAndView("login");
