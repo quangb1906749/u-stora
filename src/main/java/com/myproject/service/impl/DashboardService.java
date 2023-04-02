@@ -3,21 +3,32 @@ package com.myproject.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.myproject.converter.ProductConverter;
 import com.myproject.dto.DashboardDto;
+import com.myproject.repository.OrderRepository;
+import com.myproject.repository.ProductRepository;
+import com.myproject.repository.UserRepository;
 import com.myproject.service.IDashboardService;
 
 @Service
 public class DashboardService implements IDashboardService {
-//	@Autowired
-//	private ProductRepository productRepository;
-//	
-//	@Autowired
-//	private ProductConverter productConverter;
+	@Autowired
+	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderRepository orderRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private ProductConverter productConverter;
 	
 //	@Override
-//	public HashMap<Long, DashboardDto> AddDashboard(long id, HashMap<Long, DashboardDto> dashboard) {
+//	public HashMap<Long, DashboardDto> Dashboard(long id, HashMap<Long, DashboardDto> dashboard) {
 //		DashboardDto itemDashboard = new DashboardDto();
 //		ProductEntity entity = productRepository.findOne(id);
 //		ProductDTO product = productConverter.toDto(entity);
@@ -70,5 +81,14 @@ public class DashboardService implements IDashboardService {
 			totalOrder += itemDashboard.getValue().getTotalOrder();
 		}
 		return totalOrder;
+	}
+
+	@Override
+	public DashboardDto count() {
+		DashboardDto dashboard = new DashboardDto();
+		dashboard.setTotalProduct((int)productRepository.count());
+		dashboard.setTotalOrder((int)orderRepository.count());
+		dashboard.setTotalUser((int)userRepository.count());
+		return dashboard;
 	}
 }

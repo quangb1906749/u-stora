@@ -12,5 +12,5 @@ public interface IDashboardService {
 	public int TotalUser( HashMap<Long, DashboardDto> dashboard);
 	public int TotalProduct( HashMap<Long, DashboardDto> dashboard);
 	public int TotalOrder( HashMap<Long, DashboardDto> dashboard);
-
+	public DashboardDto count();
 }

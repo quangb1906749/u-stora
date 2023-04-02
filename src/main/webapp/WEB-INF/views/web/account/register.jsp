@@ -25,20 +25,26 @@
 						<hr class="soft" />
 
 						<div class="col-sm-8">
+
 							<div class="well">
 								<h5>TẠO TÀI KHOẢN</h5>
-								<br/>
+								<br />
+								<c:if test="${not empty message}">
+									<div class="alert alert-${alert}">${message}</div>
+								</c:if>
 								<form:form id="formSubmit" action="/dang-ky" method="POST"
 									modelAttribute="user">
 									<div class="control-group">
-										<label class="control-label" for="inputEmail">Địa chỉ email</label>
+										<label class="control-label" for="inputEmail">Địa chỉ
+											email</label>
 										<div class="controls">
 											<form:input type="text" path="email" class="span3"
 												placeholder="" />
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="inputEmail">Tên đăng nhập</label>
+										<label class="control-label" for="inputEmail">Tên đăng
+											nhập</label>
 										<div class="controls">
 											<form:input type="text" path="userName" class="span3"
 												placeholder="" />
@@ -73,22 +79,21 @@
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="inputEmail">Số điện thoại</label>
+										<label class="control-label" for="inputEmail">Số điện
+											thoại</label>
 										<div class="controls">
 											<form:input type="text" path="phone" class="span3"
 												placeholder="" />
 										</div>
 									</div>
-									<br/>
+									<br />
 									<form:hidden path="id" id="newId" />
 									<div class="clearfix form-actions">
 										<div class="col-md-offset-3 col-md-9">
 											<!-- admin usercontroller -->
 											<c:if test="${empty model.id}">
 												<button class="btn btn-info" type="button"
-													id="btnAddOrUpdateNew">
-													Đăng ký
-												</button>
+													id="btnAddOrUpdateNew">Đăng ký</button>
 											</c:if>
 										</div>
 										<!-- 									<div class="controls"> -->
@@ -123,21 +128,15 @@
 		});
 
 		function addNew(data) {
-			$
-					.ajax({
-						url : '${userAPI}',
-						type : 'POST',
-						contentType : 'application/json',
-						data : JSON.stringify(data),
-						dataType : 'json',
-						success : function(result) {
-							window.location.href = "${editUserURL}?id="
-									+ result.id + "&message=insert_success";
-						},
-						error : function(error) {
-							window.location.href = "${userURL}?page=1&limit=2&message=error_system";
-						}
-					});
+			$.ajax({
+				url : '${userAPI}',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				
+			});
+			
 		}
 	</script>
 </body>

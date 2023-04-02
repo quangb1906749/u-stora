@@ -20,12 +20,19 @@ public class MessageUtil {
 			result.put("message", "Delete success");
 			result.put("alert", "success");
 		} else if (message.equals("order_success")) {
-			result.put("message", "Đặt hàng thành công <br> Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi");
+			result.put("message", "Ä�áº·t hÃ ng thÃ nh cÃ´ng <br> Cáº£m Æ¡n báº¡n Ä‘Ã£ sá»­ dá»¥ng dá»‹ch vá»¥ cá»§a chÃºng tÃ´i");
 			result.put("alert", "success");
 		}else if (message.equals("error_system")) {
 			result.put("message", "Error system");
 			result.put("alert", "danger");
+		}else if (message.equals("regist-faill")) {
+			result.put("message", "Tài khoản hoặc email đã tồn tại!");
+			result.put("alert", "warning");
+		}else if (message.equals("regist-success")) {
+			result.put("message", "Đăng ký thành công!");
+			result.put("alert", "success");
 		}
+		
 		return result;
 	}
 }

@@ -34,5 +34,3 @@ insert into slides(img, caption, content) values('h4-slide.png','iPhone 6Plus','
 insert into slides(img, caption, content) values('h4-slide2.png','by one, get one 50% off','school supplies & backpacks');
 insert into slides(img, caption, content) values('h4-slide3.png','Apple Store Ipod','Select Item');
 insert into slides(img, caption, content) values('h4-slide4.png','Apple Store Ipod','& Phone');
-
-insert into user(birthday) 

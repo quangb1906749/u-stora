@@ -62,6 +62,8 @@ public class UserService implements IUserService {
 	@Override
 	@Transactional
 	public UserDTO save(UserDTO dto) {
+		
+
 //		RoleEntity role = roleRepository.findOneByCode(dto.getRoleCode());
 		UserEntity userEntity = new UserEntity();
 		dto.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt(10)));
@@ -70,6 +72,12 @@ public class UserService implements IUserService {
 //			oldUser.setRoles(role);
 			userEntity = userConverter.toEntity(oldUser, dto);
 		} else {
+			UserEntity existUsername = userRepository.findOneByUserNameAndStatus(dto.getUserName(), 1);
+			UserEntity existEmail = userRepository.findOneByEmail(dto.getEmail());
+			UserEntity existPhone = userRepository.findOneByPhone(dto.getPhone());
+			if ((existUsername != null) || (existEmail != null)  || (existPhone != null)) {
+				return null;
+			}
 			userEntity = userConverter.toEntity(dto);
 //			userEntity.setCategory(category);
 		}
