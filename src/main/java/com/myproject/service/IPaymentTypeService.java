@@ -9,6 +9,7 @@ import com.myproject.dto.PaymentTypeDTO;
 
 public interface IPaymentTypeService {
 	Map<String, String> findAll();
+	List<PaymentTypeDTO> findAllList();
 	List<PaymentTypeDTO> findAll(Pageable pageable);
 	int getTotalItem();
 	PaymentTypeDTO findById(long id);

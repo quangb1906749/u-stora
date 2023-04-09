@@ -59,6 +59,13 @@
 								<div class="col-sm-9">
 									<form:input path="paymentCode" cssClass="col-xs-10 col-sm-5"/>
 								</div>
+						
+						</div>
+						<div class="form-group">
+						  	<label for="shortDescription" class="col-sm-3 control-label no-padding-right">Mô tả:</label>
+						  	<div class="col-sm-9">
+						  		<form:textarea path="paymentDescription" rows="5" cols="10" cssClass="form-control" id="description"/>
+						 	</div>
 						</div>
 						<form:hidden path="id" id="paymentTypeId"/>
 						<div class="clearfix form-actions">

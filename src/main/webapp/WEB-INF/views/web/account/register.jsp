@@ -29,9 +29,6 @@
 							<div class="well">
 								<h5>TẠO TÀI KHOẢN</h5>
 								<br />
-								<c:if test="${not empty message}">
-									<div class="alert alert-${alert}">${message}</div>
-								</c:if>
 								<form:form id="formSubmit" action="/dang-ky" method="POST"
 									modelAttribute="user">
 									<div class="control-group">
@@ -89,6 +86,12 @@
 									<br />
 									<form:hidden path="id" id="newId" />
 									<div class="clearfix form-actions">
+										<c:if test="${not empty message}">
+											<div class="alert alert-${alert}"
+												style="margin: auto; width: 50%;">${message }</div>
+											<br>
+										</c:if>
+
 										<div class="col-md-offset-3 col-md-9">
 											<!-- admin usercontroller -->
 											<c:if test="${empty model.id}">
@@ -134,9 +137,9 @@
 				contentType : 'application/json',
 				data : JSON.stringify(data),
 				dataType : 'json',
-				
+
 			});
-			
+
 		}
 	</script>
 </body>

@@ -40,6 +40,24 @@ public class CartService implements ICartService{
 		cart.put(id,itemCart);
 		return cart;
 	}
+	
+	@Override
+	public HashMap<Long, CartDto> AddCart(long id, int quanty, HashMap<Long, CartDto> cart) {
+		CartDto itemCart = new CartDto();
+		ProductEntity entity = productRepository.findOne(id);
+		ProductDTO product = productConverter.toDto(entity);
+		if(product != null && cart.containsKey(id)) {
+			itemCart = cart.get(id);
+			itemCart.setQuanty(itemCart.getQuanty() + quanty);
+			itemCart.setTotalPrice(BigDecimal.valueOf(itemCart.getQuanty()).multiply(itemCart.getProduct().getPrice()));
+		}else {
+			itemCart.setProduct(product);
+			itemCart.setQuanty(itemCart.getQuanty() + quanty);;
+			itemCart.setTotalPrice(BigDecimal.valueOf(itemCart.getQuanty()).multiply(itemCart.getProduct().getPrice()));
+		}
+		cart.put(id,itemCart);
+		return cart;
+	}
 
 	@Override
 	public HashMap<Long, CartDto> EditCart(long id, int quanty, HashMap<Long, CartDto> cart) {
@@ -82,6 +100,8 @@ public class CartService implements ICartService{
 			totalPrice = totalPrice.add(itemCart.getValue().getTotalPrice());
 		}
 		return totalPrice;
-	}	
+	}
+
+		
 	
 }

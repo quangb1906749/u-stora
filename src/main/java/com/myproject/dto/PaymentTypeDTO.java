@@ -5,6 +5,7 @@ public class PaymentTypeDTO extends AbstractDTO<PaymentTypeDTO> {
 	private String paymentCode;
 	private String paymentName;
 	private String paymentImage;
+	private String paymentDescription;
 	public String getPaymentCode() {
 		return paymentCode;
 	}
@@ -22,6 +23,12 @@ public class PaymentTypeDTO extends AbstractDTO<PaymentTypeDTO> {
 	}
 	public void setPaymentImage(String paymentImage) {
 		this.paymentImage = paymentImage;
+	}
+	public String getPaymentDescription() {
+		return paymentDescription;
+	}
+	public void setPaymentDescription(String paymentDescription) {
+		this.paymentDescription = paymentDescription;
 	}
 		
 }

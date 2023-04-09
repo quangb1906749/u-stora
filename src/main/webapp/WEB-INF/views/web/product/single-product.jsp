@@ -46,7 +46,7 @@
 				<div class="">
 					<div class="product-content-right">
 						<div class="product-breadcroumb">
-							<a href="">Home</a> <a href="">Category Name</a> <a href="">${ product.categoryName }</a>
+							<a href="<c:url value='/trang-chu'/>">Home</a> <a href="">Category Name</a> <a href="">${ product.categoryName }</a>
 						</div>
 
 						<div class="row">
@@ -67,16 +67,11 @@
 									<div class="product-inner-price">
 										<ins>${ product.price }₫</ins>
 									</div>
-
-									<form action="<c:url value="/AddCart/${product.id }"/>" class="cart">
 										<div class="quantity">
-											<input type="number" size="4" class="input-text qty text"
-												title="Qty" value="1" name="quantity" min="1" step="1">
+											<input id="quanty-cart" type="number" size="4" class="input-text qty text"
+												title="Qty" value="1" name="quantity" min="1" step="1" max="${product.quantity }">
 										</div>
-										<button class="add_to_cart_button" type="submit">Add
-											to cart</button>
-									</form>
-
+										<button data-id="${product.id }" class="add_to_cart_button edit-cart" type="button">Thêm vào giỏ hàng</button>
 									<div class="product-inner-category">
 										<p>
 											Category: <a href="">Summer</a>. Tags: <a href="">awesome</a>,
@@ -227,7 +222,16 @@
 		</div>
 	</div>
 
-
+<content tag="script">
+	<script>
+	$(".edit-cart").on("click", function(){
+		var id = $(this).data("id");
+		var quanty = $("#quanty-cart").val();
+		window.location = "BuyProduct/"+id+"/"+quanty;
+	});
+	</script>
+	
+</content>
 </body>
 </html>
 
