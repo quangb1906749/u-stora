@@ -256,8 +256,6 @@
 
 													<div class="space-6"></div>
 													<div class="well">
-														Thank you for choosing Ace Company products.
-				We believe you will be satisfied by our services.
 													</div>
 												</div>
 											</div>

@@ -19,6 +19,7 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 	private Long paymentTypeId;
 	private String paymentTypeCode;
 	private String paymentTypeName;
+	private String paymentDescription;
 		
 	public OrderDTO() {
 		super();
@@ -107,8 +108,11 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 	public void setPaymentTypeName(String paymentTypeName) {
 		this.paymentTypeName = paymentTypeName;
 	}
-	
-	
-	
+	public String getPaymentDescription() {
+		return paymentDescription;
+	}
+	public void setPaymentDescription(String paymentDescription) {
+		this.paymentDescription = paymentDescription;
+	}	
 	
 }

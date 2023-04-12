@@ -64,12 +64,16 @@ public class UserService implements IUserService {
 	public UserDTO save(UserDTO dto) {
 //		RoleEntity role = roleRepository.findOneByCode(dto.getRoleCode());
 		UserEntity userEntity = new UserEntity();
-		dto.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt(10)));
+		
 		if (dto.getId() != null) {
 			UserEntity oldUser = userRepository.findOne(dto.getId());
+			if(!oldUser.getPassword().equals(dto.getPassword())) {
+				dto.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt(10)));
+			}
 //			oldUser.setRoles(role);
 			userEntity = userConverter.toEntity(oldUser, dto);
 		} else {
+			dto.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt(10)));
 			userEntity = userConverter.toEntity(dto);
 //			userEntity.setCategory(category);
 		}

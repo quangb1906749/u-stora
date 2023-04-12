@@ -13,6 +13,33 @@
 </head>
 
 <body>
+	<div class="mainmenu-area">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse">
+					<div class="navbar-collapse collapse">
+	                    <ul class="nav navbar-nav">
+	                        <li><a href="<c:url value='/trang-chu'/>">Trang chủ</a></li>
+	                        
+	                        <li><a href="<c:url value='/cua-hang?page=1&limit=6'/>">Cửa hàng</a></li>
+	                        <li><a href="<c:url value='/gioi-thieu'/>">Giới thiệu</a></li>
+	                        <li><a href="<c:url value='/gio-hang'/>">Giỏ hàng</a></li>
+	                        <li><a href="<c:url value='/dat-hang'/>">Thanh toán</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="product-big-title-area">
 		<div class="container">
 			<div class="row">

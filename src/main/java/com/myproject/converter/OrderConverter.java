@@ -16,6 +16,7 @@ public class OrderConverter {
 		result.setUserId(entity.getUser().getId());
 		result.setFullName(entity.getUser().getFullName());
 		result.setShipPhone(entity.getShipPhone());
+		result.setEmail(entity.getUser().getEmail());
 		result.setShipAddress(entity.getShipAddress());
 		result.setShipState(entity.getShipState());
 		result.setOrderTotalQuantity(entity.getOrderTotalQuantity());
@@ -23,6 +24,7 @@ public class OrderConverter {
 		result.setCreatedDate(entity.getCreatedDate());
 		result.setPaymentTypeCode(entity.getPaymentType().getPaymentCode());
 		result.setPaymentTypeName(entity.getPaymentType().getPaymentName());
+		result.setPaymentDescription(entity.getPaymentType().getPaymentDescription());
 		return result;
 	}
 	

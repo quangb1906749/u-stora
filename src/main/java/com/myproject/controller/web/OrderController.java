@@ -56,4 +56,15 @@ public class OrderController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/cam-on", method = RequestMethod.GET)
+	public ModelAndView thankPage(@RequestParam(value = "id", required = false) Long id, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("web/order/thank");
+		OrderDTO order = new OrderDTO();
+		if (id != null) {
+			order = orderService.findById(id);
+		}
+		mav.addObject("model", order);
+		return mav;
+	}
+	
 }
