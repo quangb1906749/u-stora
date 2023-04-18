@@ -104,7 +104,7 @@
 	<%@ include file="/common/web/SiteBrandingArea.jsp"%>
 
 	<!-- mainmenu-area -->
-    <%@ include file="/common/web/MainMenu.jsp" %>
+<%--     <%@ include file="/common/web/MainMenu.jsp" %> --%>
     
     <dec:body/>
     

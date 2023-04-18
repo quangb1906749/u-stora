@@ -10,6 +10,23 @@
 <meta charset="UTF-8">
 <title>Giỏ hàng</title>
 <style>
+	.mua-sam{
+		 -webkit-text-size-adjust: 100%;
+    	-webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+    margin: 0;
+    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    -webkit-appearance: button;
+    cursor: pointer;
+    background: none repeat scroll 0 0 #5a88ca;
+    border: medium none;
+    color: #fff;
+    padding: 11px 20px;
+    text-transform: uppercase;
+	}
 	.nut-dat-hang{
 		 -webkit-text-size-adjust: 100%;
     	-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -34,6 +51,33 @@
 </head>
 
 <body>
+	<div class="mainmenu-area">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse">
+					<div class="navbar-collapse collapse">
+	                    <ul class="nav navbar-nav">
+	                        <li><a href="<c:url value='/trang-chu'/>">Trang chủ</a></li>
+	                        
+	                        <li><a href="<c:url value='/cua-hang?page=1&limit=6'/>">Cửa hàng</a></li>
+	                        <li><a href="<c:url value='/gioi-thieu'/>">Giới thiệu</a></li>
+	                        <li class="active"><a href="<c:url value='/gio-hang'/>">Giỏ hàng</a></li>
+	                        <li><a href="<c:url value='/dat-hang'/>">Thanh toán</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="product-big-title-area">
         <div class="container">
             <div class="row">
@@ -125,6 +169,7 @@
                                     </tbody>
 									
                                 </table>
+                                	<a href="<c:url value='/cua-hang'/>" class="mua-sam">Tiếp tục mua sắm</a>
 									<a href="<c:url value='/dat-hang'/>" class="nut-dat-hang">Thanh toán</a>
 <!-- 									<button onclick="myFunction()">Replace document</button> -->
 <!-- 									<input onclick="checkout()" type="submit"value="Đặt hàng" name="proceed"  class="checkout-button button alt wc-forward" style="position: absolute;right:12%;"> -->

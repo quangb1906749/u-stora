@@ -8,6 +8,7 @@
 <title>Trang sản phẩm</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<div class="product-big-title-area">
 		<div class="container">
 			<div class="row">
@@ -19,6 +20,9 @@
 			</div>
 		</div>
 	</div>
+=======
+	
+>>>>>>> 06a89f218ff407e1c955a28d79c3fe75038c23a3
 	<div class="single-product-area">
 		<div class="zigzag-bottom"></div>
 		<div class="container">

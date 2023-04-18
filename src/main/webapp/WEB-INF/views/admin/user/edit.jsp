@@ -103,11 +103,19 @@
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right"
+<<<<<<< HEAD
 									for="form-field-1">Ngày sinh</label> 
 								<div class="col-sm-9">
 									<form:input type="date" path="birthday"
 										cssClass="col-xs-10 col-sm-5" />
 									
+=======
+									for="form-field-1">Ngày sinh</label>
+								<div class="col-sm-9">
+									<form:input type="date" path="birthday" cssClass="col-xs-10 col-sm-5" />
+								</div>
+							</div>
+>>>>>>> 06a89f218ff407e1c955a28d79c3fe75038c23a3
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right"
 											for="form-field-1">Số điện thoại</label>
